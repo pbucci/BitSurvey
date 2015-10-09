@@ -19,11 +19,9 @@ var rendered_path = [];         // setpoints, each s_i 0:180 degrees
 
 
 app.use("/css", express.static(__dirname + '/css'));    // serve the folder called 'css'
-app.use("/build", express.static(__dirname + '/build'));// serve the folder called 'build'
-app.use("/dist", express.static(__dirname + '/dist'));  // serve the folder called 'dist'
 app.use("/thirdparty", express.static(__dirname + '/thirdparty'));//etc
 app.get('/', function (req, res) {                  // when someone tries to access root, send index
-  res.sendfile(__dirname + '/build/index.html');
+  res.sendfile(__dirname + '/index.html');
 });
 var server = app.listen(8080, function () { // run server at 8080
   var host = server.address().address;
