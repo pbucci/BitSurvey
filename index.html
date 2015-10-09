@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+</head>
+<body>
+
+
+<div class="question">
+	<h1>Do you like cheese?</h1>
+	<form action="">
+		<input type="radio" name="sex" value="male">Male<br>
+		<input type="radio" name="sex" value="female">Female
+	</form>
+</div><!--.question-->
+
+<div id="single">
+</div><!--#single-->
+
+
+<script>
+  var socket = io('http://localhost');
+  socket.on('news', function (data) {
+    console.log(data);
+    socket.emit('my other event', { my: 'data' });
+  });
+</script>
+</body>
+</html>
