@@ -2,6 +2,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="/js/functions.js"></script>
 </head>
 <body>
 
@@ -9,12 +10,13 @@
 <div class="question">
 	<h1>BitSurvey</h1>
 	<h2>Situation: FlexiBit feels stressed</h2>
-	<p>Click "Play" to feel each behavior and evaluate their appropriateness for this situation.</p>
+	<p>Click "Play" to feel each behaviour and evaluate their appropriateness for this situation.</p>
 </div><!--.question-->
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">1. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behaviour1" form="form1" value="Play" onclick="playBehaviour(behaviour[0]);">1. Play</button>
+	
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -23,7 +25,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
@@ -52,9 +54,9 @@ Match
 
 <div class="blank"></div>
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">2. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[1]);">2. Play</button>
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -63,7 +65,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
@@ -92,9 +94,9 @@ Match
 
 <div class="blank"></div>
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">3. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[2]);">3. Play</button>
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -103,7 +105,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
@@ -132,9 +134,9 @@ Match
 
 <div class="blank"></div>
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">4. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[3]);">4. Play</button>
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -143,7 +145,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
@@ -172,9 +174,9 @@ Match
 
 <div class="blank"></div>
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">5. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[4]);">5. Play</button>
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -183,7 +185,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
@@ -212,9 +214,9 @@ Match
 
 <div class="blank"></div>
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">6. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[5]);">6. Play</button>
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -223,7 +225,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
@@ -252,9 +254,9 @@ Match
 
 <div class="blank"></div>
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">7. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[6]);">7. Play</button>
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -263,7 +265,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
@@ -292,9 +294,9 @@ Match
 
 <div class="blank"></div>
 
-<div class="play_behavior">
-	<button type="try_behavior1" form="form1" value="Play">8. Play</button>
-</div><!--play_behavior-->
+<div class="play_behaviour">
+	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[7]);">8. Play</button>
+</div><!--play_behaviour-->
 
 <div class="scalestart">
 Mismatch
@@ -303,7 +305,7 @@ Mismatch
 <div class="buttons">
 	<form action="">
 		<label for="myChoice1">1<br>
-			<input type="radio" id="flexibit_stressed_1" name="flexibit_stressed" value="flexibit_stressed_1">
+			<input type="radio" id="1" name="flexibit_stressed" value="flexibit_stressed_1">
 		</label>
 		<label for="myChoice2">2<br>
 			<input type="radio" id="flexibit_stressed_2" name="flexibit_stressed" value="flexibit_stressed_2">
