@@ -35,6 +35,8 @@ var server = app.listen(8080, function () { // run server at 8080
   console.log('Example app listening at http://%s:%s', host, port);
 });
 
+var log_writes = 0;
+
 //------------------------------------------------------------------------------
 // Socket setup
 //------------------------------------------------------------------------------
@@ -60,7 +62,40 @@ io.on('connection', function(socket){
 	socket.on("play_behaviour", function(behaviour) {
 		rendered_path = mapping[behaviour];
 		render();
+		behaviour_list = behaviour;
 		console.log(behaviour);
+	});
+	
+	socket.on("submitted_data", function(behaviour_list, situation, button_values) {
+		log_writes = log_writes + 1;
+		console.log(situation);
+		console.log(button_values);
+		// log also bot type
+		
+		var time = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+		
+		if (log_writes == 1) {
+			fs.appendFile("testfile.txt", time + ' ' + behaviour_list + '\n', function(err) {
+			if(err) {
+				return console.log(err);
+			}
+			console.log("Behaviour list saved");
+			});			
+		}
+		
+		fs.appendFile("testfile.txt", time + ' ' + situation + ' ' + button_values + '\n', function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("Situation + button values were saved");
+		});
+		
+		/* fs.appendFile("testfile.txt", button_values, function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("Button values were saved");
+		}); */
 	});
 	
 
@@ -96,7 +131,7 @@ io.on('connection', function(socket){
 	});
 });
 
-board = new five.Board({port:"COM10"});
+board = new five.Board({port:"COM30"});
 var myServo;
 board.on("ready", function() {
 	myServo = new five.Servo({
