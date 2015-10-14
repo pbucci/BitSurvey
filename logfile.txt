@@ -1,0 +1,12 @@
+2015-10-14 23:01:01 Participant number: 5
+2015-10-14 23:01:01 Bit order: flexibit-ribit
+2015-10-14 23:01:08 Age: 33
+2015-10-14 23:01:08 Gender: Male
+2015-10-14 23:01:08 Education: Undergraduate
+2015-10-14 23:01:08 Primary language: kj
+2015-10-14 23:01:08 Secondary language: h
+2015-10-14 23:01:08 Pet interaction: 1
+2015-10-14 23:01:08 Pet liking: 3
+
+2015-10-14 23:01:44 Order of behaviours: lc4,jr4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-14 23:01:44 Stressed 3,3,3,3,4,5,5,5

@@ -146,14 +146,9 @@ function submitDemographics() {
 		alert("Please answer all questions before proceeding.");
 	}
 	else {
-<<<<<<< HEAD
-		location.href='situation1.html';
+		location.href='training.html';
 		socket.emit("submitted_demographics", age, gender, education, primary_language, secondary_language, 
 			pet_interaction, pet_liking);
-=======
-		location.href='training.html';
-		socket.emit("submitted_data", behaviour, situation, button_values);
->>>>>>> origin/master
 	}
 	
 }
