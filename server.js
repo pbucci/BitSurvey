@@ -25,8 +25,9 @@ app.use("/js", express.static(__dirname + '/js'));    // serve the folder called
 app.use("/build", express.static(__dirname + '/build'));// serve the folder called 'build'
 app.use("/dist", express.static(__dirname + '/dist'));  // serve the folder called 'dist'
 app.use("/thirdparty", express.static(__dirname + '/thirdparty'));//etc
+app.use('/public', express.static(__dirname + '/public'));  // serve the html files
 app.get('/', function (req, res) {                  // when someone tries to access root, send index
-  res.sendfile(__dirname + '/index.html');
+  res.sendfile(__dirname + '/public/index.html');
 });
 var server = app.listen(8080, function () { // run server at 8080
   var host = server.address().address;
@@ -89,6 +90,28 @@ io.on('connection', function(socket){
 		}
 		console.log("Situation + button values were saved");
 		});
+		
+		/* fs.appendFile("testfile.txt", button_values, function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("Button values were saved");
+		}); */
+	});
+	
+	socket.on("submitted_preinfo", function(number, order) {
+		console.log(number);
+		console.log(order);
+		// log also bot type
+		
+		var time = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+		
+		fs.appendFile("testfile.txt", time + ' Participant number: ' + number + '\n' + time + ' Bit order: ' + order + '\n', function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("Preinfo saved");
+		});	
 		
 		/* fs.appendFile("testfile.txt", button_values, function(err) {
 		if(err) {

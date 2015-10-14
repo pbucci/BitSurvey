@@ -35,7 +35,18 @@ function getSelectedButton(){
 		alert("Please select a value for all behaviors.");
 	}
 	else {
-		location.href='index2.html';	
+		location.href='index2.html';
 		socket.emit("submitted_data", behaviour, situation, button_values);
 	}
+}
+
+function submitPreinfo(){
+	var number = document.getElementsByName('participantnumber');
+	number = number[0].value;
+	console.log(number);
+	var order = document.getElementsByName('bitorder');
+	order = order[0].value;
+	console.log(order);
+	location.href='/public/demographics.html';
+	socket.emit("submitted_preinfo", number, order);
 }
