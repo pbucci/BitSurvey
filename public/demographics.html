@@ -58,9 +58,67 @@
 
 <div class="blank"></div>
 
+<div class="question">
+	Primary language
+</div><!--question-->
+
+<div class="answerfield">
+	<input type="text" name="primary_language">
+</div><!--answerfield-->
+
+<div class="blank"></div>
+
+<div class="question">
+	Secondary language
+</div><!--question-->
+
+<div class="answerfield">
+	<input type="text" name="secondary_language">
+</div><!--answerfield-->
+
+<div class="blank"></div>
+
+<div class="question">
+	How often do you interact with pets?
+</div><!--question-->
+
+<div class="answerfield">
+	<input type="radio" name="pet_interaction" value="1"> 1 (Rarely)
+	<br>
+	<input type="radio" name="pet_interaction" value="2"> 2
+	<br>
+	<input type="radio" name="pet_interaction" value="3"> 3
+	<br>
+	<input type="radio" name="pet_interaction" value="4"> 4
+	<br>	
+	<input type="radio" name="pet_interaction" value="5"> 5 (Frequently)
+	<br>
+</div><!--answerfield-->
+
+<div class="blank"></div>
+
+<div class="question">
+	I like pets
+</div><!--question-->
+
+<div class="answerfield">
+	<input type="radio" name="pet_liking" value="1"> 1 (Strongly disagree)
+	<br>
+	<input type="radio" name="pet_liking" value="2"> 2
+	<br>
+	<input type="radio" name="pet_liking" value="3"> 3
+	<br>
+	<input type="radio" name="pet_liking" value="4"> 4
+	<br>	
+	<input type="radio" name="pet_liking" value="5"> 5 (Strongly agree)
+	<br>
+</div><!--answerfield-->
+
+<div class="blank"></div>
+
 <div class="confirminfo">
 	<!-- <button type="confirm_behavior1" onclick="location.href='index2.html'; getSelectedButton();" form="form1" value="Confirm">Confirm</button> -->
-	<button type="confirm_behavior1" onclick="submitPreinfo();" form="form1" value="Proceed">Confirm</button>
+	<button type="confirm_behavior1" onclick="submitDemographics();" form="form1" value="Proceed">Proceed</button>
 </div>
 
 <script>

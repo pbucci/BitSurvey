@@ -50,3 +50,95 @@ function submitPreinfo(){
 	location.href='/public/demographics.html';
 	socket.emit("submitted_preinfo", number, order);
 }
+
+function submitDemographics() {
+	
+	var alert_flag = 0;
+	var age = document.getElementsByName('age');
+	age = age[0].value;
+	if (age.length == 0) {
+		alert_flag = 1;
+	}
+	console.log(age);
+	
+	var gender = '';
+	var radios = document.getElementsByName('gender');
+	for (var j = 0; j < radios.length; j++) {
+		if (radios[j].type === 'radio' && radios[j].checked) {
+			// get value, set checked flag or do whatever you need to
+			gender = radios[j].value;			
+		}
+	}
+	if (gender == 'other') {
+		gender = document.getElementsByName('gender_other');
+		gender = gender[0].value;
+	}
+	if (gender.length == 0) {
+		alert_flag = 1;
+	}
+	console.log(gender);
+	
+	var education = '';
+	radios = document.getElementsByName('education');
+		for (var j = 0; j < radios.length; j++) {
+		if (radios[j].type === 'radio' && radios[j].checked) {
+			// get value, set checked flag or do whatever you need to
+			education = radios[j].value;			
+		}
+	}
+	if (education.length == 0) {
+		alert_flag = 1;
+	}
+	console.log(education);
+	
+	var primary_language = '';
+	primary_language = document.getElementsByName('primary_language');
+	primary_language = primary_language[0].value;
+	if (primary_language.length == 0) {
+		alert_flag = 1;
+	}
+	console.log(primary_language);
+	
+	var secondary_language = '';
+	secondary_language = document.getElementsByName('secondary_language');
+	secondary_language = secondary_language[0].value;
+	if (secondary_language.length == 0) {
+		alert_flag = 1;
+	}
+	console.log(secondary_language);
+	
+	var pet_interaction = '';
+	radios = document.getElementsByName('pet_interaction');
+		for (var j = 0; j < radios.length; j++) {
+		if (radios[j].type === 'radio' && radios[j].checked) {
+			// get value, set checked flag or do whatever you need to
+			pet_interaction = radios[j].value;			
+		}
+	}
+	if (pet_interaction.length == 0) {
+		alert_flag = 1;
+	}
+	console.log(pet_interaction);
+	
+	var pet_liking = '';
+	radios = document.getElementsByName('pet_liking');
+		for (var j = 0; j < radios.length; j++) {
+		if (radios[j].type === 'radio' && radios[j].checked) {
+			// get value, set checked flag or do whatever you need to
+			pet_liking = radios[j].value;			
+		}
+	}
+	if (pet_liking.length == 0) {
+		alert_flag = 1;
+	}
+	console.log(pet_liking);
+	
+	if (alert_flag == 1) {
+		alert("Please answer all questions before proceeding.");
+	}
+	else {
+		location.href='situation1.html';
+		socket.emit("submitted_data", behaviour, situation, button_values);
+	}
+	
+}

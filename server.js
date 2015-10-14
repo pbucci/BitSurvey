@@ -73,10 +73,11 @@ io.on('connection', function(socket){
 		console.log(button_values);
 		// log also bot type
 		
-		var time = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+		var time = new Date();
+		time = time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
 		
 		if (log_writes == 1) {
-			fs.appendFile("testfile.txt", time + ' ' + behaviour_list + '\n', function(err) {
+			fs.appendFile("logfile.txt", time + ' ' + behaviour_list + '\n', function(err) {
 			if(err) {
 				return console.log(err);
 			}
@@ -104,9 +105,10 @@ io.on('connection', function(socket){
 		console.log(order);
 		// log also bot type
 		
-		var time = new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+		var time = new Date();
+		time = time.toString().replace(/T/, ' ').replace(/\..+/, '');
 		
-		fs.appendFile("testfile.txt", time + ' Participant number: ' + number + '\n' + time + ' Bit order: ' + order + '\n', function(err) {
+		fs.appendFile("logfile.txt", time + ' Participant number: ' + number + '\n' + time + ' Bit order: ' + order + '\n', function(err) {
 		if(err) {
 			return console.log(err);
 		}
