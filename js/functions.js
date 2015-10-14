@@ -1,11 +1,16 @@
 var behaviour=["lc4", "jr4", "mj4", "lc1", "mj1", "mj8", "jr3", "mj3"];
 var button_groups=["radio_behaviour_1", "radio_behaviour_2", "radio_behaviour_3", "radio_behaviour_4","radio_behaviour_5", "radio_behaviour_6", "radio_behaviour_7", "radio_behaviour_8"];
 var button_values=[0, 0, 0, 0, 0, 0, 0, 0];
-var situation;
+var situation = '';
 
 function playBehaviour(behaviour){
 	socket.emit("play_behaviour", behaviour);
 	console.log(behaviour);
+}
+
+function getSituation() {
+	console.log(situation);
+	return situation;
 }
 
 function getSelectedButton(){
@@ -38,6 +43,10 @@ function getSelectedButton(){
 		location.href='index2.html';
 		socket.emit("submitted_data", behaviour, situation, button_values);
 	}
+}
+
+function showSummary() {
+	location.href='/public/summary.html';
 }
 
 function submitPreinfo(){
@@ -138,7 +147,8 @@ function submitDemographics() {
 	}
 	else {
 		location.href='situation1.html';
-		socket.emit("submitted_data", behaviour, situation, button_values);
+		socket.emit("submitted_demographics", age, gender, education, primary_language, secondary_language, 
+			pet_interaction, pet_liking);
 	}
 	
 }

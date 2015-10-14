@@ -77,7 +77,7 @@ io.on('connection', function(socket){
 		time = time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
 		
 		if (log_writes == 1) {
-			fs.appendFile("logfile.txt", time + ' ' + behaviour_list + '\n', function(err) {
+			fs.appendFile("logfile.txt", '\n' + time + ' Order of behaviours: ' + behaviour_list + '\n', function(err) {
 			if(err) {
 				return console.log(err);
 			}
@@ -85,7 +85,7 @@ io.on('connection', function(socket){
 			});			
 		}
 		
-		fs.appendFile("testfile.txt", time + ' ' + situation + ' ' + button_values + '\n', function(err) {
+		fs.appendFile("logfile.txt", time + ' ' + situation + ' ' + button_values + '\n', function(err) {
 		if(err) {
 			return console.log(err);
 		}
@@ -106,7 +106,7 @@ io.on('connection', function(socket){
 		// log also bot type
 		
 		var time = new Date();
-		time = time.toString().replace(/T/, ' ').replace(/\..+/, '');
+		time = time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
 		
 		fs.appendFile("logfile.txt", time + ' Participant number: ' + number + '\n' + time + ' Bit order: ' + order + '\n', function(err) {
 		if(err) {
@@ -123,6 +123,23 @@ io.on('connection', function(socket){
 		}); */
 	});
 	
+	socket.on("submitted_demographics", function(age, gender, education, primary_language, secondary_language, pet_interaction, pet_liking) {
+		var time = new Date();
+		time = time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+		
+		fs.appendFile("logfile.txt", time + ' Age: ' + age + '\n' + 
+						time + ' Gender: ' + gender + '\n' +
+						time + ' Education: ' + education + '\n' +
+						time + ' Primary language: ' + primary_language + '\n' +
+						time + ' Secondary language: ' + secondary_language + '\n' +
+						time + ' Pet interaction: ' + pet_interaction + '\n' +
+						time + ' Pet liking: ' + pet_liking + '\n', function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("Preinfo saved");
+		});	
+	});
 
 	// Test servo motion
 	socket.on('test', function(){

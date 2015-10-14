@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="/js/functions.js"></script>
+</head>
+<body>
+
+<div class="pageheader">
+	<h1>BitSurvey</h1>
+	<p>This page shows a summary of your answers.</p>
+</div><!--.pageheader-->
+
+<div id="summary">
+</div><!--.summary-->
+
+<script>
+	/* var socket = io('http://localhost:8080');
+	socket.on('news', function (data) {
+		console.log(data);
+		socket.emit('my other event', { my: 'data' });
+	}); */
+	
+	var displaySummary = document.createElement("p");
+	displaySummary.innerHTML = "<code>Situation 1</code>" + getSituation();
+	summary.appendChild(displaySummary);
+</script>
+</body>
+</html>
