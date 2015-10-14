@@ -13,7 +13,7 @@ function getSituation() {
 	return situation;
 }
 
-function getSelectedButton(){
+function getSelectedButton(newpage){
 	var tmp = document.getElementsByName('situation');
 	situation = tmp[0].value;
 	console.log(situation);
@@ -40,8 +40,19 @@ function getSelectedButton(){
 		alert("Please select a value for all behaviors.");
 	}
 	else {
-		location.href='index2.html';
 		socket.emit("submitted_data", behaviour, situation, button_values);
+		if (newpage == 2) {
+			location.href='situation2.html';
+		}
+		else if (newpage == 3) {
+			location.href='situation3.html';
+		}
+		else if (newpage == 4) {
+			location.href='situation4.html';
+		}
+		else if (newpage == 5) {
+			location.href='summary.html';
+		}
 	}
 }
 

@@ -1,12 +1,17 @@
-2015-10-14 23:01:01 Participant number: 5
-2015-10-14 23:01:01 Bit order: flexibit-ribit
-2015-10-14 23:01:08 Age: 33
-2015-10-14 23:01:08 Gender: Male
-2015-10-14 23:01:08 Education: Undergraduate
-2015-10-14 23:01:08 Primary language: kj
-2015-10-14 23:01:08 Secondary language: h
-2015-10-14 23:01:08 Pet interaction: 1
-2015-10-14 23:01:08 Pet liking: 3
+2015-10-14 23:29:53 Participant number: 1
+2015-10-14 23:29:53 Bit order: flexibit-ribit
+2015-10-14 23:30:05 Age: 654
+2015-10-14 23:30:05 Gender: Male
+2015-10-14 23:30:05 Education: Undergraduate_ongoing
+2015-10-14 23:30:05 Primary language: ygkuyg
+2015-10-14 23:30:05 Secondary language: kuyfygukfg
+2015-10-14 23:30:05 Pet interaction: 3
+2015-10-14 23:30:05 Pet liking: 1
 
-2015-10-14 23:01:44 Order of behaviours: lc4,jr4,mj4,lc1,mj1,mj8,jr3,mj3
-2015-10-14 23:01:44 Stressed 3,3,3,3,4,5,5,5
+2015-10-14 23:30:26 Order of behaviours: lc4,jr4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-14 23:30:26 Stressed 1,1,1,1,1,1,1,1
+2015-10-14 23:30:40 Excited 2,2,2,2,2,2,2,2
+2015-10-14 23:31:05 Relaxed 3,3,3,3,3,3,3,3
+2015-10-14 23:32:09 Depressed 4,4,4,4,4,4,4,4
+2015-10-14 23:36:52 Relaxed 3,3,3,3,3,3,3,4
+2015-10-14 23:39:25 Stressed 1,1,1,1,1,1,1,1
