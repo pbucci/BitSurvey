@@ -1,32 +1,18 @@
-2015-10-15 20:42:32 Played behaviour (training): jr4
-2015-10-15 20:45:43 Participant number: 4
-2015-10-15 20:45:43 Bit order: flexibit-ribit
-2015-10-15 20:45:53 Age: 32
-2015-10-15 20:45:53 Gender: Male
-2015-10-15 20:45:53 Education: Graduate_ongoing
-2015-10-15 20:45:53 Primary language: fe
-2015-10-15 20:45:53 Secondary language: fce
-2015-10-15 20:45:53 Pet interaction: 2
-2015-10-15 20:45:53 Pet liking: 3
-2015-10-15 20:46:18 Played behaviour (training): mj1
-2015-10-15 20:46:30 Played behaviour (test): lc1
-2015-10-15 20:46:55 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
-2015-10-15 20:46:55 stressed 1,1,1,1,1,1,1,1
-2015-10-15 20:47:04 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
-2015-10-15 20:47:04 depressed 2,2,2,2,2,2,2,2
-2015-10-15 20:47:12 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
-2015-10-15 20:47:12 excited 3,3,3,3,3,3,3,3
-2015-10-15 20:47:20 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
-2015-10-15 20:47:20 relaxed 4,4,4,4,4,4,4,4
-2015-10-15 20:49:06 Participant number: uhy
-2015-10-15 20:49:06 Bit order: flexibit-ribit
-2015-10-15 20:51:55 Participant number: 5
-2015-10-15 20:51:55 Bit order: flexibit-ribit
-2015-10-15 20:57:56 Age: 32
-2015-10-15 20:57:56 Gender: Female
-2015-10-15 20:57:56 Education: Graduate_ongoing
-2015-10-15 20:57:56 Primary language: fe
-2015-10-15 20:57:56 Secondary language: fe
-2015-10-15 20:57:56 Pet interaction: 2
-2015-10-15 20:57:56 Pet liking: 3
-2015-10-15 20:57:58 Played behaviour (training): mj1
+2015-10-15 21:15:45 Participant number: 1
+2015-10-15 21:15:45 Bit order: flexibit-ribit
+2015-10-15 21:15:52 Age: 33
+2015-10-15 21:15:52 Gender: Female
+2015-10-15 21:15:52 Education: Undergraduate
+2015-10-15 21:15:52 Primary language: refre
+2015-10-15 21:15:52 Secondary language: gvre
+2015-10-15 21:15:52 Pet interaction: 2
+2015-10-15 21:15:52 Pet liking: 2
+2015-10-15 21:18:04 Played behaviour (training): jr4
+2015-10-15 21:19:10 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-15 21:19:10 relaxed 1,1,1,1,1,1,1,1
+2015-10-15 21:19:21 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-15 21:19:21 stressed 2,2,2,2,2,2,2,2
+2015-10-15 21:19:33 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-15 21:19:33 depressed 3,3,3,3,3,3,3,3
+2015-10-15 21:19:45 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-15 21:19:45 excited 4,4,4,4,4,4,4,4
