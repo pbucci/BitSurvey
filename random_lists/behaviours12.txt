@@ -1,0 +1,8 @@
+mj8
+mj4
+lc4
+jr4
+lc1
+jr3
+mj3
+mj1

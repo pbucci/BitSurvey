@@ -26,6 +26,7 @@ app.use("/build", express.static(__dirname + '/build'));// serve the folder call
 app.use("/dist", express.static(__dirname + '/dist'));  // serve the folder called 'dist'
 app.use("/thirdparty", express.static(__dirname + '/thirdparty'));//etc
 app.use('/public', express.static(__dirname + '/public'));  // serve the html files
+app.use('/random_lists', express.static(__dirname + '/random_lists'));  // serve the randomized lists
 app.get('/', function (req, res) {                  // when someone tries to access root, send index
   res.sendfile(__dirname + '/public/index.html');
 });
@@ -36,6 +37,9 @@ var server = app.listen(8080, function () { // run server at 8080
   console.log('Example app listening at http://%s:%s', host, port);
 });
 
+var participant_number;
+var randomized_behaviours = [];  // list of randomized behaviours (8) read from a text file
+var randomized_situations = [];  // list of randomized situations (4) read from a text file
 var log_writes = 0;
 
 //------------------------------------------------------------------------------
@@ -56,36 +60,53 @@ io.on('connection', function(socket){
 	
 	//socket.emit('news', {hello: 'world'});
 	
-	socket.on('my other event', function(data){
-		console.log(data);
+	socket.on('query_situation', function(data){
+		console.log('query_situation: ' + data);
+		socket.emit('receive_situation', randomized_situations[data]);
 	});
 	
-	socket.on("play_behaviour", function(behaviour) {
-		rendered_path = mapping[behaviour];
+	socket.on("training_behaviour", function(behaviour_number) {
+		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
-		behaviour_list = behaviour;
-		console.log(behaviour);
+
+		fs.appendFile("logfile.txt", get_time() + ' Played behaviour (training): ' + 
+			randomized_behaviours[behaviour_number] + '\n', function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("Played behaviour: " + randomized_behaviours[behaviour_number]);
+		});
 	});
 	
-	socket.on("submitted_data", function(behaviour_list, situation, button_values) {
+	socket.on("test_behaviour", function(behaviour_number) {
+		rendered_path = mapping[randomized_behaviours[behaviour_number]];
+		render();
+
+		fs.appendFile("logfile.txt", get_time() + ' Played behaviour (test): ' + 
+			randomized_behaviours[behaviour_number] + '\n', function(err) {
+		if(err) {
+			return console.log(err);
+		}
+		console.log("Played behaviour: " + randomized_behaviours[behaviour_number]);
+		});
+	});
+	
+	socket.on("submitted_data", function(situation_index, button_values) {
 		log_writes = log_writes + 1;
-		console.log(situation);
+		//console.log(situation);
 		console.log(button_values);
 		// log also bot type
 		
-		var time = new Date();
-		time = time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
-		
-		if (log_writes == 1) {
-			fs.appendFile("logfile.txt", '\n' + time + ' Order of behaviours: ' + behaviour_list + '\n', function(err) {
+		//if (log_writes == 1) {
+			fs.appendFile("logfile.txt", get_time() + ' Order of behaviours: ' + randomized_behaviours + '\n', function(err) {
 			if(err) {
 				return console.log(err);
 			}
 			console.log("Behaviour list saved");
 			});			
-		}
+		//}
 		
-		fs.appendFile("logfile.txt", time + ' ' + situation + ' ' + button_values + '\n', function(err) {
+		fs.appendFile("logfile.txt", get_time() + ' ' + randomized_situations[situation_index] + ' ' + button_values + '\n', function(err) {
 		if(err) {
 			return console.log(err);
 		}
@@ -101,44 +122,72 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on("submitted_preinfo", function(number, order) {
+		log_writes = 0;
 		console.log(number);
 		console.log(order);
-		// log also bot type
 		
-		var time = new Date();
-		time = time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
-		
-		fs.appendFile("logfile.txt", time + ' Participant number: ' + number + '\n' + time + ' Bit order: ' + order + '\n', function(err) {
+		participant_number = number;
+
+		fs.appendFile("logfile.txt", get_time() + ' Participant number: ' + number + '\n' + get_time() + ' Bit order: ' + order + '\n', function(err) {
 		if(err) {
 			return console.log(err);
 		}
 		console.log("Preinfo saved");
-		});	
+		});
+				
+		// read randomized list of behaviours
+
+		randomized_behaviours = [];
+
+		var rl = require('readline').createInterface({
+			input: require('fs').createReadStream('random_lists/behaviours' + participant_number + '.txt')
+		});
+
+		rl.on('line', function (line) {
+			randomized_behaviours[randomized_behaviours.length] = line;
+		});
 		
-		/* fs.appendFile("testfile.txt", button_values, function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("Button values were saved");
-		}); */
+		// read randomized list of situations
+
+		randomized_situations = [];
+		
+		rl = require('readline').createInterface({
+			input: require('fs').createReadStream('random_lists/situations' + participant_number + '.txt')
+		});
+
+		rl.on('line', function (line) {
+			randomized_situations[randomized_situations.length] = line;
+		});
+
 	});
 	
 	socket.on("submitted_demographics", function(age, gender, education, primary_language, secondary_language, pet_interaction, pet_liking) {
-		var time = new Date();
-		time = time.toISOString().replace(/T/, ' ').replace(/\..+/, '');
-		
-		fs.appendFile("logfile.txt", time + ' Age: ' + age + '\n' + 
-						time + ' Gender: ' + gender + '\n' +
-						time + ' Education: ' + education + '\n' +
-						time + ' Primary language: ' + primary_language + '\n' +
-						time + ' Secondary language: ' + secondary_language + '\n' +
-						time + ' Pet interaction: ' + pet_interaction + '\n' +
-						time + ' Pet liking: ' + pet_liking + '\n', function(err) {
+
+		fs.appendFile("logfile.txt", get_time() + ' Age: ' + age + '\n' + 
+						get_time() + ' Gender: ' + gender + '\n' +
+						get_time() + ' Education: ' + education + '\n' +
+						get_time() + ' Primary language: ' + primary_language + '\n' +
+						get_time() + ' Secondary language: ' + secondary_language + '\n' +
+						get_time() + ' Pet interaction: ' + pet_interaction + '\n' +
+						get_time() + ' Pet liking: ' + pet_liking + '\n', function(err) {
 		if(err) {
 			return console.log(err);
 		}
 		console.log("Preinfo saved");
 		});	
+		
+				
+		console.log('Full behaviour list: ' + randomized_behaviours);
+		
+		for (var i = 0; i < randomized_behaviours.length; i++) {
+			console.log(randomized_behaviours[i]);
+		}
+
+		console.log('Full situation list: ' + randomized_situations);
+		
+		for (var i = 0; i < randomized_situations.length; i++) {
+			console.log(randomized_situations[i]);
+		}
 	});
 
 	// Test servo motion
@@ -188,6 +237,12 @@ board.on("ready", function() {
     	console.log('Sweep away, my captain.');
 });
 
+function get_time() {
+	var current_time = new Date();
+	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '');	
+	return current_time;
+}
+
 // maps the server message to 0-180 degrees
 function makepath(range,path) {
     var unscaled_points = [];
@@ -229,7 +284,7 @@ function stop_render() {
 function doSetTimeout(i) {
     var t = setTimeout(function(){
         myServo.to(rendered_path[i]);
-        console.log('Moving servo to ' + rendered_path[i]);
+        //console.log('Moving servo to ' + rendered_path[i]);
     },5 * i);
     return t;
 }

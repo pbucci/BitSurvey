@@ -1,0 +1,4 @@
+relaxed
+excited
+stressed
+depressed

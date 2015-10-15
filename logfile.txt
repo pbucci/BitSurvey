@@ -1,17 +1,32 @@
-2015-10-14 23:29:53 Participant number: 1
-2015-10-14 23:29:53 Bit order: flexibit-ribit
-2015-10-14 23:30:05 Age: 654
-2015-10-14 23:30:05 Gender: Male
-2015-10-14 23:30:05 Education: Undergraduate_ongoing
-2015-10-14 23:30:05 Primary language: ygkuyg
-2015-10-14 23:30:05 Secondary language: kuyfygukfg
-2015-10-14 23:30:05 Pet interaction: 3
-2015-10-14 23:30:05 Pet liking: 1
-
-2015-10-14 23:30:26 Order of behaviours: lc4,jr4,mj4,lc1,mj1,mj8,jr3,mj3
-2015-10-14 23:30:26 Stressed 1,1,1,1,1,1,1,1
-2015-10-14 23:30:40 Excited 2,2,2,2,2,2,2,2
-2015-10-14 23:31:05 Relaxed 3,3,3,3,3,3,3,3
-2015-10-14 23:32:09 Depressed 4,4,4,4,4,4,4,4
-2015-10-14 23:36:52 Relaxed 3,3,3,3,3,3,3,4
-2015-10-14 23:39:25 Stressed 1,1,1,1,1,1,1,1
+2015-10-15 20:42:32 Played behaviour (training): jr4
+2015-10-15 20:45:43 Participant number: 4
+2015-10-15 20:45:43 Bit order: flexibit-ribit
+2015-10-15 20:45:53 Age: 32
+2015-10-15 20:45:53 Gender: Male
+2015-10-15 20:45:53 Education: Graduate_ongoing
+2015-10-15 20:45:53 Primary language: fe
+2015-10-15 20:45:53 Secondary language: fce
+2015-10-15 20:45:53 Pet interaction: 2
+2015-10-15 20:45:53 Pet liking: 3
+2015-10-15 20:46:18 Played behaviour (training): mj1
+2015-10-15 20:46:30 Played behaviour (test): lc1
+2015-10-15 20:46:55 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
+2015-10-15 20:46:55 stressed 1,1,1,1,1,1,1,1
+2015-10-15 20:47:04 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
+2015-10-15 20:47:04 depressed 2,2,2,2,2,2,2,2
+2015-10-15 20:47:12 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
+2015-10-15 20:47:12 excited 3,3,3,3,3,3,3,3
+2015-10-15 20:47:20 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
+2015-10-15 20:47:20 relaxed 4,4,4,4,4,4,4,4
+2015-10-15 20:49:06 Participant number: uhy
+2015-10-15 20:49:06 Bit order: flexibit-ribit
+2015-10-15 20:51:55 Participant number: 5
+2015-10-15 20:51:55 Bit order: flexibit-ribit
+2015-10-15 20:57:56 Age: 32
+2015-10-15 20:57:56 Gender: Female
+2015-10-15 20:57:56 Education: Graduate_ongoing
+2015-10-15 20:57:56 Primary language: fe
+2015-10-15 20:57:56 Secondary language: fe
+2015-10-15 20:57:56 Pet interaction: 2
+2015-10-15 20:57:56 Pet liking: 3
+2015-10-15 20:57:58 Played behaviour (training): mj1

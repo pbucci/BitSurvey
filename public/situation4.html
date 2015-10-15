@@ -7,14 +7,14 @@
 <body>
 
 
-<div class="pageheader">
+<div id="pageheader">
 	<h1>BitSurvey</h1>
-	<h2>Situation: FlexiBit feels depressed</h2>
-	<p>Click "Play" to feel each behaviour and evaluate their appropriateness for this situation.</p>
 </div><!--.question-->
 
+<p>Click "Play" to feel each behaviour and evaluate their appropriateness for this situation.</p>
+	
 <div class="play_behaviour">
-	<button type="try_behaviour1" form="form1" value="Play" onclick="playBehaviour(behaviour[0]);">1. Play</button>
+	<button type="try_behaviour1" form="form1" value="Play" onclick="playTestBehaviour(0);">1. Play</button>
 	
 </div><!--play_behaviour-->
 
@@ -24,7 +24,6 @@ Mismatch
 
 <div class="buttons">
 	<form id="radio_behaviour_1" action="">
-		<input type="hidden" name="situation" value="Depressed">
 		<label for="myChoice1">1<br>
 			<input type="radio" id="1" name="radios_1" value="1">
 		</label>
@@ -56,7 +55,7 @@ Match
 <div class="blank"></div>
 
 <div class="play_behaviour">
-	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[1]);">2. Play</button>
+	<button type="try_behavior1" form="form1" value="Play" onclick="playTestBehaviour(1);">2. Play</button>
 </div><!--play_behaviour-->
 
 <div class="scalestart">
@@ -96,7 +95,7 @@ Match
 <div class="blank"></div>
 
 <div class="play_behaviour">
-	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[2]);">3. Play</button>
+	<button type="try_behavior1" form="form1" value="Play" onclick="playTestBehaviour(2);">3. Play</button>
 </div><!--play_behaviour-->
 
 <div class="scalestart">
@@ -136,7 +135,7 @@ Match
 <div class="blank"></div>
 
 <div class="play_behaviour">
-	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[3]);">4. Play</button>
+	<button type="try_behavior1" form="form1" value="Play" onclick="playTestBehaviour(3);">4. Play</button>
 </div><!--play_behaviour-->
 
 <div class="scalestart">
@@ -176,7 +175,7 @@ Match
 <div class="blank"></div>
 
 <div class="play_behaviour">
-	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[4]);">5. Play</button>
+	<button type="try_behavior1" form="form1" value="Play" onclick="playTestBehaviour(4);">5. Play</button>
 </div><!--play_behaviour-->
 
 <div class="scalestart">
@@ -216,7 +215,7 @@ Match
 <div class="blank"></div>
 
 <div class="play_behaviour">
-	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[5]);">6. Play</button>
+	<button type="try_behavior1" form="form1" value="Play" onclick="playTestBehaviour(5);">6. Play</button>
 </div><!--play_behaviour-->
 
 <div class="scalestart">
@@ -256,7 +255,7 @@ Match
 <div class="blank"></div>
 
 <div class="play_behaviour">
-	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[6]);">7. Play</button>
+	<button type="try_behavior1" form="form1" value="Play" onclick="playTestBehaviour(6);">7. Play</button>
 </div><!--play_behaviour-->
 
 <div class="scalestart">
@@ -296,7 +295,7 @@ Match
 <div class="blank"></div>
 
 <div class="play_behaviour">
-	<button type="try_behavior1" form="form1" value="Play" onclick="playBehaviour(behaviour[7]);">8. Play</button>
+	<button type="try_behavior1" form="form1" value="Play" onclick="playTestBehaviour(7);">8. Play</button>
 </div><!--play_behaviour-->
 
 <div class="scalestart">
@@ -337,29 +336,21 @@ Match
 
 <div class="confirmselection">
 	<!-- <button type="confirm_behavior1" onclick="location.href='index2.html'; getSelectedButton();" form="form1" value="Confirm">Confirm</button> -->
-	<button type="confirm_behavior1" onclick="getSelectedButton(5);" form="form1" value="Confirm">Confirm selections</button>
+	<button type="confirm_behavior1" onclick="saveData(3);" form="form1" value="Confirm">Confirm selections</button>
 </div>
 
 <script>
 	var socket = io('http://localhost:8080');
-	socket.on('news', function (data) {
-		console.log(data);
-		socket.emit('my other event', { my: 'data' });
-	});
+	// query situation for index x from server, add to page header
+	socket.emit('query_situation', '3');
   
-	/* function getCheckedRadio(radio_group) {
-		for (var i = 0; i < radio_group.length; i++) {
-			var button = radio_group[i];
-			if (button.checked) {
-				return button;
-			}
-		}
-		return undefined;
-	}
-	var checkedButton = getCheckedRadio(document.forms.frmId.elements.groupName);
-	if (checkedButton) {
-		alert("The value is " + checkedButton.value);
-	} */
+    socket.on('receive_situation', function (data) {
+		console.log('receive_situation: ' + data);
+		var displaySituation = document.createElement("div");
+		displaySituation.innerHTML = "<h2>FlexiBit feels " + data + "</h2>";
+		pageheader.appendChild(displaySituation);
+		setSituation(data);
+	});
 </script>
 </body>
 </html>

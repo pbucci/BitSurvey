@@ -1,10 +1,15 @@
-var behaviour=["lc4", "jr4", "mj4", "lc1", "mj1", "mj8", "jr3", "mj3"];
+//var behaviour=[];
 var button_groups=["radio_behaviour_1", "radio_behaviour_2", "radio_behaviour_3", "radio_behaviour_4","radio_behaviour_5", "radio_behaviour_6", "radio_behaviour_7", "radio_behaviour_8"];
 var button_values=[0, 0, 0, 0, 0, 0, 0, 0];
 var situation = '';
 
-function playBehaviour(behaviour){
-	socket.emit("play_behaviour", behaviour);
+function playTrainingBehaviour(behaviour){
+	socket.emit("training_behaviour", behaviour);
+	console.log(behaviour);
+}
+
+function playTestBehaviour(behaviour){
+	socket.emit("test_behaviour", behaviour);
 	console.log(behaviour);
 }
 
@@ -13,9 +18,13 @@ function getSituation() {
 	return situation;
 }
 
-function getSelectedButton(newpage){
-	var tmp = document.getElementsByName('situation');
-	situation = tmp[0].value;
+function setSituation(data) {
+	situation = data;
+}
+
+function saveData(situation_index){
+	/* var tmp = document.getElementsByName('situation');
+	situation = tmp[0].value; */
 	console.log(situation);
 	
 	for (var i = 0; i < button_groups.length; i++) {
@@ -40,25 +49,25 @@ function getSelectedButton(newpage){
 		alert("Please select a value for all behaviors.");
 	}
 	else {
-		socket.emit("submitted_data", behaviour, situation, button_values);
-		if (newpage == 2) {
+		socket.emit("submitted_data", situation_index, button_values);
+		if (situation_index == 0) {
 			location.href='situation2.html';
 		}
-		else if (newpage == 3) {
+		else if (situation_index == 1) {
 			location.href='situation3.html';
 		}
-		else if (newpage == 4) {
+		else if (situation_index == 2) {
 			location.href='situation4.html';
 		}
-		else if (newpage == 5) {
+		else if (situation_index == 3) {
 			location.href='summary.html';
 		}
 	}
 }
 
-function showSummary() {
+/* function showSummary() {
 	location.href='/public/summary.html';
-}
+} */
 
 function submitPreinfo(){
 	var number = document.getElementsByName('participantnumber');
