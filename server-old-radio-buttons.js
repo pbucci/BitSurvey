@@ -27,8 +27,7 @@ app.use("/dist", express.static(__dirname + '/dist'));  // serve the folder call
 app.use("/thirdparty", express.static(__dirname + '/thirdparty'));//etc
 app.use('/public', express.static(__dirname + '/public'));  // serve the html files
 app.use('/random_lists', express.static(__dirname + '/random_lists'));  // serve the randomized lists
-app.use('/public', express.static(__dirname + '/public'));  // serve the html files
-app.use('/bins', express.static(__dirname + '/bins'));  // serve the html files
+app.use('/bins', express.static(__dirname + '/public'));  // serve the bins folder
 app.get('/', function (req, res) {                  // when someone tries to access root, send index
   res.sendfile(__dirname + '/bins/index.html');
 });
