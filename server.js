@@ -87,7 +87,7 @@ io.on('connection', function(socket){
 		});
 	});
 	
-	socket.on("test_behaviour", function(behaviour_number) {
+	socket.on("test_behaviour", function(behaviour_number, situation_number) {
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
 
@@ -96,7 +96,7 @@ io.on('connection', function(socket){
 		if(err) {
 			return console.log(err);
 		}
-		console.log("Played behaviour: " + randomized_behaviours[behaviour_number]);
+		console.log("Played behaviour: " + randomized_behaviours[behaviour_number] + " (" + situation_number + ")");
 		});
 	});
 	

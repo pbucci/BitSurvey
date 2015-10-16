@@ -8,9 +8,9 @@ function playTrainingBehaviour(behaviour){
 	console.log(behaviour);
 }
 
-function playTestBehaviour(behaviour){
-	socket.emit("test_behaviour", behaviour);
-	console.log(behaviour);
+function playTestBehaviour(behaviour, situation){
+	socket.emit("test_behaviour", behaviour, situation);
+	console.log("playTestBehaviour: " + behaviour, situation);
 }
 
 function getSituation() {

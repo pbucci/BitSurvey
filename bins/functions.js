@@ -3,14 +3,14 @@ var button_groups=["radio_behaviour_1", "radio_behaviour_2", "radio_behaviour_3"
 var button_values=[0, 0, 0, 0, 0, 0, 0, 0];
 var situation = '';
 
-function playTrainingBehaviour(behaviour){
-	socket.emit("training_behaviour", behaviour);
-	console.log(behaviour);
+function playTrainingBehaviour(behaviour, situation_number){
+	socket.emit("training_behaviour", behaviour, situation_number);
+	console.log(behaviour, situation_number);
 }
 
-function playTestBehaviour(behaviour){
-	socket.emit("test_behaviour", behaviour);
-	console.log(behaviour);
+function playTestBehaviour(behaviour, situation_number){
+	socket.emit("test_behaviour", behaviour, situation_number);
+	console.log(behaviour, situation_number);
 }
 
 function getSituation() {

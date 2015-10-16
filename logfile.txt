@@ -121,3 +121,91 @@
 2015-10-16 20:37:10 Played behaviour (test): mj4
 2015-10-16 20:42:10 Played behaviour (test): lc4
 2015-10-16 20:46:29 Played behaviour (test): lc4
+2015-10-16 20:48:29 Played behaviour (test): lc4
+2015-10-16 20:52:41 Played behaviour (test): lc4
+2015-10-16 20:55:38 Played behaviour (test): mj4
+2015-10-16 20:55:50 Played behaviour (test): mj4
+2015-10-16 20:57:02 Played behaviour (test): mj4
+2015-10-16 21:01:54 Played behaviour (test): lc4
+2015-10-16 21:07:47 Played behaviour (test): lc4
+2015-10-16 21:08:35 Participant number: 1
+2015-10-16 21:08:35 Bit order: flexibit-ribit
+2015-10-16 21:08:40 Age: 32
+2015-10-16 21:08:40 Gender: Female
+2015-10-16 21:08:40 Education: Graduate_ongoing
+2015-10-16 21:08:40 Primary language: 3e2
+2015-10-16 21:08:40 Secondary language: e2
+2015-10-16 21:08:40 Pet interaction: 2
+2015-10-16 21:08:40 Pet liking: 1
+2015-10-16 21:08:43 Played behaviour (test): lc4
+2015-10-16 21:08:59 Played behaviour (test): mj4
+2015-10-16 21:09:01 Played behaviour (test): lc1
+2015-10-16 21:09:03 Played behaviour (test): mj1
+2015-10-16 21:09:27 Played behaviour (test): lc4
+2015-10-16 21:10:11 Played behaviour (test): lc4
+2015-10-16 21:11:14 Played behaviour (test): lc4
+2015-10-16 21:12:04 Played behaviour (test): lc4
+2015-10-16 21:12:32 Played behaviour (test): lc4
+2015-10-16 21:13:22 Played behaviour (test): lc4
+2015-10-16 21:13:31 Played behaviour (test): mj4
+2015-10-16 21:13:44 Played behaviour (test): lc4
+2015-10-16 21:14:48 Played behaviour (test): lc4
+2015-10-16 21:14:56 Played behaviour (test): mj4
+2015-10-16 21:16:04 Participant number: 1
+2015-10-16 21:16:04 Bit order: flexibit-ribit
+2015-10-16 21:16:10 Age: 423
+2015-10-16 21:16:10 Gender: Female
+2015-10-16 21:16:10 Education: Graduate_ongoing
+2015-10-16 21:16:10 Primary language: wef
+2015-10-16 21:16:10 Secondary language: ef
+2015-10-16 21:16:10 Pet interaction: 1
+2015-10-16 21:16:10 Pet liking: 1
+2015-10-16 21:16:13 Played behaviour (test): lc4
+2015-10-16 21:16:14 Played behaviour (test): mj4
+2015-10-16 21:16:15 Played behaviour (test): lc1
+2015-10-16 21:16:16 Played behaviour (test): mj1
+2015-10-16 21:16:18 Played behaviour (test): mj8
+2015-10-16 21:16:19 Played behaviour (test): jr3
+2015-10-16 21:16:20 Played behaviour (test): mj3
+2015-10-16 21:17:30 Participant number: 1
+2015-10-16 21:17:30 Bit order: flexibit-ribit
+2015-10-16 21:17:35 Age: 3
+2015-10-16 21:17:35 Gender: Male
+2015-10-16 21:17:35 Education: PhD
+2015-10-16 21:17:35 Primary language: vfr
+2015-10-16 21:17:35 Secondary language: vr
+2015-10-16 21:17:35 Pet interaction: 3
+2015-10-16 21:17:35 Pet liking: 3
+2015-10-16 21:17:37 Played behaviour (training): mj8
+2015-10-16 21:17:40 Played behaviour (test): mj8
+2015-10-16 21:17:45 Played behaviour (test): jr3
+2015-10-16 21:18:36 Played behaviour (test): mj8
+2015-10-16 21:18:42 Played behaviour (test): lc4
+2015-10-16 21:20:20 Played behaviour (test): mj1
+2015-10-16 21:20:29 Played behaviour (test): mj3
+2015-10-16 21:21:17 Played behaviour (test): jr4
+2015-10-16 21:21:21 Played behaviour (test): lc4
+2015-10-16 21:23:41 Played behaviour (test): jr4
+2015-10-16 21:29:06 Played behaviour (test): jr4
+2015-10-16 21:31:25 Played behaviour (test): jr4
+2015-10-16 21:31:59 Played behaviour (test): jr4
+2015-10-16 21:32:57 Played behaviour (test): jr4
+2015-10-16 21:32:58 Played behaviour (test): jr4
+2015-10-16 21:32:58 Played behaviour (test): lc4
+2015-10-16 21:33:00 Played behaviour (test): jr4
+2015-10-16 21:33:00 Played behaviour (test): mj1
+2015-10-16 21:33:05 Played behaviour (test): jr4
+2015-10-16 21:33:05 Played behaviour (test): jr3
+2015-10-16 21:33:55 Played behaviour (test): jr4
+2015-10-16 21:33:57 Played behaviour (test): jr4
+2015-10-16 21:33:58 Played behaviour (test): jr4
+2015-10-16 21:34:20 Played behaviour (test): jr4
+2015-10-16 21:36:32 Played behaviour (test): jr4
+2015-10-16 21:36:48 Played behaviour (test): lc1
+2015-10-16 21:36:50 Played behaviour (test): mj3
+2015-10-16 21:36:52 Played behaviour (test): mj8
+2015-10-16 21:36:56 Played behaviour (test): mj3
+2015-10-16 21:37:17 Played behaviour (test): jr4
+2015-10-16 21:37:19 Played behaviour (test): jr4
+2015-10-16 21:37:21 Played behaviour (test): lc4
+2015-10-16 21:37:23 Played behaviour (test): mj3
