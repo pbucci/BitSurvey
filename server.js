@@ -30,7 +30,7 @@ app.use('/random_lists', express.static(__dirname + '/random_lists'));  // serve
 app.use('/public', express.static(__dirname + '/public'));  // serve the html files
 app.use('/bins', express.static(__dirname + '/bins'));  // serve the html files
 app.get('/', function (req, res) {                  // when someone tries to access root, send index
-  res.sendfile(__dirname + '/bins/index.html');
+  res.sendfile(__dirname + '/public/index.html');
 });
 var server = app.listen(8080, function () { // run server at 8080
   var host = server.address().address;

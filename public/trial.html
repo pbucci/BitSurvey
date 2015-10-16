@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <title>jQuery UI Sortable - Handle empty lists</title>
-  <script src="bins/jquery.js"></script>
-  <script src="bins/jquery-ui.js"></script>
-  <link rel="stylesheet" href="bins/jquery-ui.css">
-  <link rel="stylesheet" href="bins/style.css">
-
-  <script src="bins/functions.js"></script>
+  <script src="/bins/jquery.js"></script>
+  <script src="/bins/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/bins/jquery-ui.css">
+  <link rel="stylesheet" href="/bins/style.css">
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="/bins/functions.js"></script>
 </head>
 <body>
 <div id="scenario1" class="scenario">
@@ -17,13 +17,13 @@
         <h1>Behaviours</h1>
         <ul class="droptrue sortable1">
           <li class="floater" id="behaviour1">Behaviour 1</li>
-          <li class="floater">Behaviour 2</li>
-          <li class="floater">Behaviour 3</li>
-          <li class="floater">Behaviour 4</li>
-          <li class="floater">Behaviour 5</li>
-          <li class="floater">Behaviour 6</li>
-          <li class="floater">Behaviour 7</li>
-          <li class="floater">Behaviour 8</li>
+          <li class="floater" id="behaviour2">Behaviour 2</li>
+          <li class="floater" id="behaviour3">Behaviour 3</li>
+          <li class="floater" id="behaviour4">Behaviour 4</li>
+          <li class="floater" id="behaviour5">Behaviour 5</li>
+          <li class="floater" id="behaviour6">Behaviour 6</li>
+          <li class="floater" id="behaviour7">Behaviour 7</li>
+          <li class="floater" id="behaviour8">Behaviour 8</li>
         </ul>
     </div>
 
@@ -58,14 +58,14 @@
     <div class="list darkbg">
         <h1>Behaviours</h1>
         <ul class="droptrue sortable1">
-          <li class="floater">Behaviour 1</li>
-          <li class="floater">Behaviour 2</li>
-          <li class="floater">Behaviour 3</li>
-          <li class="floater">Behaviour 4</li>
-          <li class="floater">Behaviour 5</li>
-          <li class="floater">Behaviour 6</li>
-          <li class="floater">Behaviour 7</li>
-          <li class="floater">Behaviour 8</li>
+          <li class="floater" id="behaviour1">Behaviour 1</li>
+          <li class="floater" id="behaviour2">Behaviour 2</li>
+          <li class="floater" id="behaviour3">Behaviour 3</li>
+          <li class="floater" id="behaviour4">Behaviour 4</li>
+          <li class="floater" id="behaviour5">Behaviour 5</li>
+          <li class="floater" id="behaviour6">Behaviour 6</li>
+          <li class="floater" id="behaviour7">Behaviour 7</li>
+          <li class="floater" id="behaviour8">Behaviour 8</li>
         </ul>
     </div>
 
@@ -99,15 +99,15 @@
     <h1>Scenario 3</h1>
     <div class="list darkbg">
         <h1>Behaviours</h1>
-        <ul class="droptrue sortable1">
-          <li class="floater">Behaviour 1</li>
-          <li class="floater">Behaviour 2</li>
-          <li class="floater">Behaviour 3</li>
-          <li class="floater">Behaviour 4</li>
-          <li class="floater">Behaviour 5</li>
-          <li class="floater">Behaviour 6</li>
-          <li class="floater">Behaviour 7</li>
-          <li class="floater">Behaviour 8</li>
+        <ul class="droptrue sortable1" id="sortable1">
+          <li class="floater" id="behaviour1">Behaviour 1</li>
+          <li class="floater" id="behaviour2">Behaviour 2</li>
+          <li class="floater" id="behaviour3">Behaviour 3</li>
+          <li class="floater" id="behaviour4">Behaviour 4</li>
+          <li class="floater" id="behaviour5">Behaviour 5</li>
+          <li class="floater" id="behaviour6">Behaviour 6</li>
+          <li class="floater" id="behaviour7">Behaviour 7</li>
+          <li class="floater" id="behaviour8">Behaviour 8</li>
         </ul>
     </div>
 
@@ -142,14 +142,14 @@
     <div class="list darkbg">
         <h1>Behaviours</h1>
         <ul class="droptrue sortable1">
-          <li class="floater">Behaviour 1</li>
-          <li class="floater">Behaviour 2</li>
-          <li class="floater">Behaviour 3</li>
-          <li class="floater">Behaviour 4</li>
-          <li class="floater">Behaviour 5</li>
-          <li class="floater">Behaviour 6</li>
-          <li class="floater">Behaviour 7</li>
-          <li class="floater">Behaviour 8</li>
+          <li class="floater" id="behaviour1">Behaviour 1</li>
+          <li class="floater" id="behaviour2">Behaviour 2</li>
+          <li class="floater" id="behaviour3">Behaviour 3</li>
+          <li class="floater" id="behaviour4">Behaviour 4</li>
+          <li class="floater" id="behaviour5">Behaviour 5</li>
+          <li class="floater" id="behaviour6">Behaviour 6</li>
+          <li class="floater" id="behaviour7">Behaviour 7</li>
+          <li class="floater" id="behaviour8">Behaviour 8</li>
         </ul>
     </div>
 
@@ -181,11 +181,41 @@
 </div>
 
 <script>
-$(document).ready(function(){
-    $("#behaviour1").click(function(){
-        alert("Behaviour 1 was clicked. Should play behaviour.");
-    });
-});
+	var socket = io('http://localhost:8080');
+	// query situation for index x from server, add to page header
+	socket.emit('query_situation', '3');
+
+	$(document).ready(function(){
+		$("#behaviour1").click(function(){
+			playTestBehaviour(1);
+		});
+		$("#behaviour2").click(function(){
+			playTestBehaviour(2);
+		});
+		$("#behaviour3").click(function(){
+			playTestBehaviour(3);
+		});
+		$("#behaviour4").click(function(){
+			playTestBehaviour(4);
+		});
+		$("#behaviour5").click(function(){
+			playTestBehaviour(5);
+		});
+		$("#behaviour6").click(function(){
+			playTestBehaviour(6);
+		});
+		$("#behaviour7").click(function(){
+			playTestBehaviour(7);
+		});
+		$("#behaviour8").click(function(){
+			playTestBehaviour(8);
+		});		
+	});
+	
+	$("#sortable1").mouseup(function(){
+		<!-- $(this).after("Mouse button released."); -->
+		alert("Mouse button released.");
+	});	
 </script>
 
 </body>

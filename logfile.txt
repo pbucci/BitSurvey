@@ -87,3 +87,37 @@
 2015-10-16 18:11:46 excited -1,-2,-2,+1,+1,0,-1,-2
 2015-10-16 18:19:39 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
 2015-10-16 18:19:39 excited -1,-2,-2,+1,+1,0,+3,+2
+2015-10-16 20:22:48 Participant number: 1
+2015-10-16 20:22:48 Bit order: flexibit-ribit
+2015-10-16 20:22:55 Age: 22
+2015-10-16 20:22:55 Gender: Female
+2015-10-16 20:22:55 Education: Graduate_ongoing
+2015-10-16 20:22:55 Primary language: we
+2015-10-16 20:22:55 Secondary language: qW
+2015-10-16 20:22:55 Pet interaction: 2
+2015-10-16 20:22:55 Pet liking: 2
+2015-10-16 20:22:57 Played behaviour (training): jr4
+2015-10-16 20:24:24 Participant number: 1
+2015-10-16 20:24:24 Bit order: flexibit-ribit
+2015-10-16 20:24:30 Age: 23
+2015-10-16 20:24:30 Gender: Female
+2015-10-16 20:24:30 Education: Graduate_ongoing
+2015-10-16 20:24:30 Primary language: qw
+2015-10-16 20:24:30 Secondary language: qwd
+2015-10-16 20:24:30 Pet interaction: 1
+2015-10-16 20:24:30 Pet liking: 1
+2015-10-16 20:27:44 Played behaviour (test): lc4
+2015-10-16 20:29:04 Played behaviour (test): mj4
+2015-10-16 20:29:05 Played behaviour (test): lc4
+2015-10-16 20:29:08 Played behaviour (test): mj4
+2015-10-16 20:31:30 Played behaviour (test): lc1
+2015-10-16 20:31:31 Played behaviour (test): mj1
+2015-10-16 20:31:33 Played behaviour (test): mj8
+2015-10-16 20:31:34 Played behaviour (test): jr3
+2015-10-16 20:31:41 Played behaviour (test): jr3
+2015-10-16 20:31:57 Played behaviour (test): lc4
+2015-10-16 20:35:27 Played behaviour (test): jr3
+2015-10-16 20:35:48 Played behaviour (test): jr3
+2015-10-16 20:37:10 Played behaviour (test): mj4
+2015-10-16 20:42:10 Played behaviour (test): lc4
+2015-10-16 20:46:29 Played behaviour (test): lc4
