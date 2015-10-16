@@ -39,7 +39,7 @@ function saveData(situation_index){
 	
 	for (var i = 0; i < button_groups.length; i++) {
 		var alert_flag = 0;
-		if (button_values[i] == 0) {
+		if (button_values[i] == '') {
 			alert_flag = 1;
 		}
 		console.log(button_values[i]);

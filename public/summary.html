@@ -8,7 +8,7 @@
 
 <div class="pageheader">
 	<h1>BitSurvey</h1>
-	<p>The first block has ended. Please prepare to evaluate the second Bit.</p>
+	<p>The first block has ended. Below is a summary of your answers.</p>
 </div><!--.pageheader-->
 
 <div id="summary">
@@ -24,6 +24,36 @@
 	/* var displaySummary = document.createElement("p");
 	displaySummary.innerHTML = "<code>Situation 1</code>" + getSituation();
 	summary.appendChild(displaySummary); */
+		var socket = io('http://localhost:8080');
+	// query situation for index x from server, add to page header
+	socket.emit('query_responses', 'all');
+  
+    socket.on('receive_responses', function (responses, situations) {
+		console.log('receive_responses: ' + responses);
+		var displaySummary = document.createElement("div")
+		var tmp_html = "<code>";
+		for (var i = 0; i < situations.length; i++) {
+			tmp_html = tmp_html + "<h3>" + situations[i] + "</h3>";
+			var tmp_html = tmp_html + "<u>&nbsp;&nbsp;&nbsp;&nbsp;-3&nbsp;&nbsp;-2&nbsp;&nbsp;-1&nbsp;&nbsp;0 &nbsp;&nbsp;+1&nbsp;&nbsp;+2&nbsp;&nbsp;+3</u><br/>";
+			for (var j = 0; j < responses[i].length; j++) {
+				tmp_html = tmp_html + "B" + (j+1) + ": " + add_whitespace(responses[i][j]) + "<strong>x</strong>" + "<br/>";
+			}
+			tmp_html = tmp_html + "<br/>"
+		}
+		tmp_html = tmp_html + "</code>";
+		displaySummary.innerHTML = tmp_html;
+		summary.appendChild(displaySummary);
+	});
+	
+	function add_whitespace(number) {
+		console.log('number input: ' + number)
+		var tmp = "";
+		for (var i = -3; i < number; i++) {
+			tmp = tmp + "&nbsp;&nbsp;&nbsp;&nbsp;"
+		}
+		console.log(tmp);
+		return tmp;
+	}
 </script>
 </body>
 </html>

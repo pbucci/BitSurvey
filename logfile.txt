@@ -16,3 +16,74 @@
 2015-10-15 21:19:33 depressed 3,3,3,3,3,3,3,3
 2015-10-15 21:19:45 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
 2015-10-15 21:19:45 excited 4,4,4,4,4,4,4,4
+2015-10-16 16:58:18 Participant number: 1
+2015-10-16 16:58:18 Bit order: flexibit-ribit
+2015-10-16 16:58:28 Age: 32
+2015-10-16 16:58:28 Gender: Male
+2015-10-16 16:58:28 Education: Graduate_ongoing
+2015-10-16 16:58:28 Primary language: wer
+2015-10-16 16:58:28 Secondary language: 1r3
+2015-10-16 16:58:28 Pet interaction: 2
+2015-10-16 16:58:28 Pet liking: 2
+2015-10-16 16:58:36 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 16:58:36 relaxed 1,1,1,1,1,1,1,1
+2015-10-16 16:58:44 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 16:58:44 stressed 2,2,2,2,2,2,2,2
+2015-10-16 16:58:51 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 16:58:51 depressed 3,3,3,3,3,3,3,3
+2015-10-16 16:58:58 excited 4,4,4,4,4,4,4,4
+2015-10-16 16:58:58 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:04:50 Participant number: 1
+2015-10-16 17:04:50 Bit order: flexibit-ribit
+2015-10-16 17:04:59 Age: 32
+2015-10-16 17:04:59 Gender: Female
+2015-10-16 17:04:59 Education: Undergraduate
+2015-10-16 17:04:59 Primary language: ed
+2015-10-16 17:04:59 Secondary language: we
+2015-10-16 17:04:59 Pet interaction: 2
+2015-10-16 17:04:59 Pet liking: 1
+2015-10-16 17:05:08 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:05:08 relaxed 1,1,1,1,1,1,1,1
+2015-10-16 17:05:14 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:05:14 stressed 2,2,2,2,2,2,2,2
+2015-10-16 17:05:20 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:05:20 depressed 3,3,3,3,3,3,3,3
+2015-10-16 17:05:28 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:05:28 excited 4,4,4,4,4,4,4,4
+2015-10-16 17:24:08 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:24:08 relaxed 2,6,6,3,4,5,4,4
+2015-10-16 17:24:17 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:24:17 stressed 4,4,7,6,5,4,5,5
+2015-10-16 17:24:24 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:24:24 depressed 4,3,3,3,6,6,5,5
+2015-10-16 17:24:33 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:24:33 excited 4,3,3,2,6,2,5,6
+2015-10-16 17:25:50 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:25:50 excited 2,2,3,2,2,2,3,2
+2015-10-16 17:29:47 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:29:47 excited 1,1,7,7,1,1,1,1
+2015-10-16 17:30:07 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 17:30:07 excited 5,4,7,7,2,2,2,2
+2015-10-16 17:59:48 Participant number: 1
+2015-10-16 17:59:48 Bit order: flexibit-ribit
+2015-10-16 18:00:14 Age: 32
+2015-10-16 18:00:14 Gender: Male
+2015-10-16 18:00:14 Education: Graduate
+2015-10-16 18:00:14 Primary language: dfew
+2015-10-16 18:00:14 Secondary language: dfwe
+2015-10-16 18:00:14 Pet interaction: 3
+2015-10-16 18:00:14 Pet liking: 3
+2015-10-16 18:02:26 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 18:02:26 relaxed -1,-1,-1,-1,-1,-1,-1,-1
+2015-10-16 18:03:48 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 18:03:48 relaxed -3,-3,-3,-1,-1,-1,-1,-2
+2015-10-16 18:03:54 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 18:03:54 stressed -1,-1,-2,-1,-1,-1,-2,-2
+2015-10-16 18:04:03 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 18:04:03 depressed 0,0,+1,0,+1,+1,0,0
+2015-10-16 18:04:10 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 18:04:10 excited +2,+1,+2,+1,+1,+2,+1,+1
+2015-10-16 18:11:46 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 18:11:46 excited -1,-2,-2,+1,+1,0,-1,-2
+2015-10-16 18:19:39 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-16 18:19:39 excited -1,-2,-2,+1,+1,0,+3,+2

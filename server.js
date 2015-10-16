@@ -40,6 +40,7 @@ var server = app.listen(8080, function () { // run server at 8080
 var participant_number;
 var randomized_behaviours = [];  // list of randomized behaviours (8) read from a text file
 var randomized_situations = [];  // list of randomized situations (4) read from a text file
+var responses = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 var log_writes = 0;
 
 //------------------------------------------------------------------------------
@@ -64,6 +65,12 @@ io.on('connection', function(socket){
 		console.log('query_situation: ' + data);
 		socket.emit('receive_situation', randomized_situations[data]);
 	});
+	
+	socket.on('query_responses', function(data){
+		console.log('query_responses: ' + data);
+		socket.emit('receive_responses', responses, randomized_situations);
+	});
+	
 	
 	socket.on("training_behaviour", function(behaviour_number) {
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
@@ -95,7 +102,7 @@ io.on('connection', function(socket){
 		log_writes = log_writes + 1;
 		//console.log(situation);
 		console.log(button_values);
-		// log also bot type
+		responses[situation_index] = button_values;
 		
 		//if (log_writes == 1) {
 			fs.appendFile("logfile.txt", get_time() + ' Order of behaviours: ' + randomized_behaviours + '\n', function(err) {
