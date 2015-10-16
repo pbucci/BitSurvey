@@ -3,7 +3,8 @@
 	margin: 0;
 	float: left;
 	padding:0;
-	min-width: 180px;
+	#min-width: 180px;
+	min-width: 14%;
 	min-height: 270px;
 }
 body {
@@ -30,24 +31,32 @@ h1 {
 	margin: 5px;
 	padding: 5px;
 	font-size: 1.2em;
-	width: 150px;
+	#width: 150px;
+	#width: (100/1)%;
 }
 
 .list {
-	width:185px;
+	#width:110px;
+	width: 14%;
 	height:350px;
 	float:left;
 	margin-right:10px;
 	padding-left:5px;
-	border:1px dotted grey;
+	border:2px dotted grey;
+	text-align:center;
 }
 
 .scenario {
 	margin-top:5px;
+	margin-left:2px;
 	padding:5px;
-	border:1px dotted grey;
-	width:1250px;
-	height:430px;
+	border:2px solid grey;
+	#width:1250px;
+	width: 49%;
+	#height:430px;
+	height: 48%;
+	float: left;
+	border-spacing:2px;
 }
 .darkbg {
 	background-color: #cccccc;
