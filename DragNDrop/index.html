@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Sortable - Handle empty lists</title>
+  <script src="jquery.js"></script>
+  <script src="jquery-ui.js"></script>
+  <link rel="stylesheet" href="jquery-ui.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="functions.js"></script>
+</head>
+<body>
+<div id="scenario1" class="scenario">
+    <h1>Scenario 1</h1>
+    <div class="list darkbg">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater">Behaviour 1</li>
+          <li class="floater">Behaviour 2</li>
+          <li class="floater">Behaviour 3</li>
+          <li class="floater">Behaviour 4</li>
+          <li class="floater">Behaviour 5</li>
+          <li class="floater">Behaviour 6</li>
+          <li class="floater">Behaviour 7</li>
+          <li class="floater">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list">
+        <h1><span id="match">Unmatched</span><br/>-2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><span id="match">Matched</span><br/>2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+</div>
+<div id="scenario2" class="scenario">
+    <h1>Scenario 2</h1>
+    <div class="list darkbg">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater">Behaviour 1</li>
+          <li class="floater">Behaviour 2</li>
+          <li class="floater">Behaviour 3</li>
+          <li class="floater">Behaviour 4</li>
+          <li class="floater">Behaviour 5</li>
+          <li class="floater">Behaviour 6</li>
+          <li class="floater">Behaviour 7</li>
+          <li class="floater">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list">
+        <h1><span id="match">Unmatched</span><br/>-2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><span id="match">Matched</span><br/>2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+</div>
+<div id="scenario3" class="scenario">
+    <h1>Scenario 3</h1>
+    <div class="list darkbg">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater">Behaviour 1</li>
+          <li class="floater">Behaviour 2</li>
+          <li class="floater">Behaviour 3</li>
+          <li class="floater">Behaviour 4</li>
+          <li class="floater">Behaviour 5</li>
+          <li class="floater">Behaviour 6</li>
+          <li class="floater">Behaviour 7</li>
+          <li class="floater">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list">
+        <h1><span id="match">Unmatched</span><br/>-2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><span id="match">Matched</span><br/>2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+</div>
+<div id="scenario4" class="scenario">
+    <h1>Scenario 4</h1>
+    <div class="list darkbg">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater">Behaviour 1</li>
+          <li class="floater">Behaviour 2</li>
+          <li class="floater">Behaviour 3</li>
+          <li class="floater">Behaviour 4</li>
+          <li class="floater">Behaviour 5</li>
+          <li class="floater">Behaviour 6</li>
+          <li class="floater">Behaviour 7</li>
+          <li class="floater">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list">
+        <h1><span id="match">Unmatched</span><br/>-2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+    <div class="list">
+        <h1><span id="match">Matched</span><br/>2</h1>
+        <ul class="droptrue sortable1">
+        </ul>
+    </div>
+</div>
+
+
+</body>
+</html>
