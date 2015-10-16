@@ -79,7 +79,7 @@ io.on('connection', function(socket){
 		render();
 
 		fs.appendFile("logfile.txt", get_time() + ' Played behaviour (training): ' + 
-			randomized_behaviours[behaviour_number] + '\n', function(err) {
+			randomized_behaviours[behaviour_number] + ' (' +situation_number + ')\n', function(err) {
 		if(err) {
 			return console.log(err);
 		}

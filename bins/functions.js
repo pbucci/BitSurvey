@@ -5,12 +5,12 @@ var situation = '';
 
 function playTrainingBehaviour(behaviour, situation_number){
 	socket.emit("training_behaviour", behaviour, situation_number);
-	console.log(behaviour, situation_number);
+	//console.log(behaviour, situation_number);
 }
 
 function playTestBehaviour(behaviour, situation_number){
 	socket.emit("test_behaviour", behaviour, situation_number);
-	console.log(behaviour, situation_number);
+	//console.log(behaviour, situation_number);
 }
 
 function getSituation() {
