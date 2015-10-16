@@ -56,3 +56,118 @@ h1 {
 #match {
 	color:blue;
 }
+
+.pageheader {
+#	background-color: red;
+	padding-bottom: 10px;
+}
+
+.play_behaviour {
+#	background-color: grey;
+	padding-bottom: 15px;
+	float: left;
+	width: 80px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-right: 35px;
+	height: 30px;	
+}
+
+.question {
+#	background-color: grey;
+	float: left;
+	width: 140px;
+	height: 42px;
+	padding-top: 1px;
+#	padding-left: 30px;
+	padding-right: 35px;
+	padding-bottom: 0px;
+}
+
+#input[type=radio] { 
+#	transform: scale(1.5); 
+#	-moz-transform: scale(1.5); 
+#	-ms-transform: scale(1.5); 
+#	-webkit-transform: scale(1.5); 
+#	-o-transform: scale(1.5); 
+#}
+
+.answerfield {
+#	background-color: green;
+	float: left;
+#	height: 42px;
+	padding-top: 1px;
+#	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+}
+
+.buttons {
+#	background-color: blue;
+	height:60px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+	float: left;
+}
+
+.scalestart {
+#	background-color: green;
+	float: left;
+	height: 42px;
+	padding-left: 10px;
+	padding-top: 18px;
+	padding-right: 10px;
+}
+
+.scaleend {
+#	background-color: green;
+	float: left;
+	height: 42px;	
+	padding-top: 18px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.blank {
+	clear: both;
+}
+
+.confirminfo{
+#	background-color: grey;
+	padding-bottom: 15px;
+	width: 300px;
+	padding-top: 1px;
+#	padding-left: 30px;
+	padding-right: 35px;
+	height: 30px;
+	text-align: left;
+}
+
+.confirmtraining{
+#	background-color: grey;
+	padding-bottom: 15px;
+	width: 300px;
+	padding-top: 50px;
+#	padding-left: 30px;
+	padding-right: 35px;
+	height: 30px;
+	text-align: left;
+}
+	
+.confirmselection{
+#	background-color: grey;
+	padding-bottom: 15px;
+	width: 616px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-right: 35px;
+	height: 30px;
+	text-align: center;
+}
+
+label {
+    float: left;
+    padding: 0 1em;
+    text-align: center;
+}
