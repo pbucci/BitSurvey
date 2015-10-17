@@ -172,8 +172,7 @@ function submitDemographics() {
 	}
 	
 }
- 
- 
+
  $(function() {
    $( "#scenario1 ul.droptrue" ).sortable({
      connectWith: "ul",

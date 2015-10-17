@@ -29,27 +29,27 @@
 
     <div class="list" id="situation1_bin-2">
         <h1><span id="match">Mismatch</span><br/>-2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation1_bin-2">
         </ul>
     </div>
     <div class="list" id="situation1_bin-1">
         <h1><br/>-1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation1_bin-1">
         </ul>
     </div>
     <div class="list" id="situation1_bin-0">
         <h1><br/>0</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation1_bin-0">
         </ul>
     </div>
-    <div class="list"  id="situation1_bin+1">
+    <div class="list" id="situation1_bin+1">
         <h1><br/>1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation1_bin+1">
         </ul>
     </div>
     <div class="list" id="situation1_bin+2">
         <h1><span id="match">Match</span><br/>2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation1_bin+2">
         </ul>
     </div>
 </div>
@@ -71,27 +71,27 @@
 
     <div class="list" id="situation2_bin-2">
         <h1><span id="match">Mismatch</span><br/>-2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation2_bin-2">
         </ul>
     </div>
     <div class="list" id="situation2_bin-1">
         <h1><br/>-1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation2_bin-1">
         </ul>
     </div>
     <div class="list" id="situation2_bin-0">
         <h1><br/>0</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation2_bin-0">
         </ul>
     </div>
     <div class="list" id="situation2_bin+1">
         <h1><br/>1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation2_bin+1">
         </ul>
     </div>
     <div class="list" id="situation2_bin+2">
         <h1><span id="match">Match</span><br/>2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation2_bin+2">
         </ul>
     </div>
 </div>
@@ -113,27 +113,27 @@
 
     <div class="list" id="situation3_bin-2">
         <h1><span id="match">Mismatch</span><br/>-2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation3_bin-2">
         </ul>
     </div>
     <div class="list" id="situation3_bin-1">
         <h1><br/>-1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation3_bin-1">
         </ul>
     </div>
     <div class="list" id="situation3_bin-0">
         <h1><br/>0</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation3_bin-0">
         </ul>
     </div>
     <div class="list" id="situation3_bin+1">
         <h1><br/>1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation3_bin+1">
         </ul>
     </div>
     <div class="list" id="situation3_bin+2">
         <h1><span id="match">Match</span><br/>2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation3_bin+2">
         </ul>
     </div>
 </div>
@@ -155,27 +155,27 @@
 
     <div class="list" id="situation4_bin-2">
         <h1><span id="match">Mismatch</span><br/>-2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation4_bin-2">
         </ul>
     </div>
     <div class="list" id="situation4_bin-1">
         <h1><br/>-1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation4_bin-1">
         </ul>
     </div>
     <div class="list" id="situation4_bin-0">
         <h1><br/>0</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation4_bin-0">
         </ul>
     </div>
     <div class="list" id="situation4_bin+1">
         <h1><br/>1</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation4_bin+1">
         </ul>
     </div>
     <div class="list" id="situation4_bin+2">
         <h1><span id="match">Match</span><br/>2</h1>
-        <ul class="droptrue sortable1">
+        <ul class="droptrue sortable1" id="situation4_bin+2">
         </ul>
     </div>
 </div>
@@ -217,7 +217,7 @@
 	});	
 	
 	$(function() {
-		$("#floater").draggable();
+		//$("#floater").draggable();
 		$('[id^=situation]').droppable({
 			drop: function(event, ui) {
 				bin_end = event.target.id;
@@ -225,6 +225,17 @@
 			}
 		});
 	});
+	
+	function confirmSelections() {
+		var x = $(".floater");
+		for (var i = 0; i < x.length; i++) {
+			var answer = x[i].parentNode.getAttribute("id");
+			console.log(x[i].innerHTML + ": " + x[i].parentNode.getAttribute("id"));
+			if (answer == null) {
+				alert("Please drag each behaviour to a bin before confirming selections.");
+			}
+		}
+	}
 </script>
 
 </body>
