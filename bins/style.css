@@ -20,6 +20,7 @@ h1 {
 }
 .instruction {
 	padding-left:100px;
+	padding-right:15px;
 	#background-color:green;
 	font-size:15px;
 	font-family:sans-serif;
@@ -190,7 +191,7 @@ h1 {
 	#background-color: grey;
 	width: 316px;
 	padding-top: 40px;
-	padding-left: 120px;
+	padding-left: 220px;
 	padding-right: 35px;
 	height: 72px;
 	text-align: right;
@@ -199,6 +200,7 @@ h1 {
 	float:left;
 	font-size:15px;
 	vertical-align:center-right;
+	border-bottom:1px solid grey;
 }
 
 label {
