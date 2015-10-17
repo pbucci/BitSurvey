@@ -1,0 +1,59 @@
+2015-10-17 01:28:18 Participant number: 1
+2015-10-17 01:28:18 Bit order: flexibit-ribit
+2015-10-17 01:28:26 Age: 23
+2015-10-17 01:28:26 Primary language: few
+2015-10-17 01:28:26 Secondary language: aewf
+2015-10-17 01:28:26 Pet interaction: 2
+2015-10-17 01:28:26 Pet liking: 3
+2015-10-17 01:28:26 Order of behaviours: jr4,lc4,mj4,lc1,mj1,mj8,jr3,mj3
+2015-10-17 01:28:26 Order of situations: relaxed,stressed,depressed,excited
+2015-10-17 01:28:26 Education: Graduate
+2015-10-17 01:28:26 Gender: Female
+2015-10-17 01:28:27 Played behaviour (training): jr4
+2015-10-17 01:28:27 Played behaviour (training): lc4
+2015-10-17 01:28:28 Played behaviour (training): mj4
+2015-10-17 01:28:28 Played behaviour (training): lc1
+2015-10-17 01:28:28 Played behaviour (training): mj1
+2015-10-17 01:28:29 Played behaviour (training): mj8
+2015-10-17 01:28:30 Played behaviour (training): jr3
+2015-10-17 01:28:30 Played behaviour (training): mj3
+2015-10-17 01:29:07 Played behaviour (test): jr4 (situation1_bin-default)
+2015-10-17 01:29:08 Played behaviour (test): lc4 (situation1_bin-default)
+2015-10-17 01:29:08 Played behaviour (test): mj4 (situation1_bin-default)
+2015-10-17 01:29:08 Played behaviour (test): lc1 (situation1_bin-default)
+2015-10-17 01:29:09 Played behaviour (test): mj1 (situation1_bin-default)
+2015-10-17 01:29:09 Played behaviour (test): mj8 (situation1_bin-default)
+2015-10-17 01:29:10 Played behaviour (test): jr3 (situation1_bin-default)
+2015-10-17 01:29:10 Played behaviour (test): mj3 (situation1_bin-default)
+2015-10-17 01:29:40 Saved data: situation1_bin-2, Behaviour 6
+2015-10-17 01:29:40 Saved data: situation1_bin-1, Behaviour 4
+2015-10-17 01:29:40 Saved data: situation1_bin-1, Behaviour 3
+2015-10-17 01:29:40 Saved data: situation1_bin-0, Behaviour 2
+2015-10-17 01:29:40 Saved data: situation1_bin-0, Behaviour 8
+2015-10-17 01:29:40 Saved data: situation1_bin+1, Behaviour 5
+2015-10-17 01:29:40 Saved data: situation1_bin+1, Behaviour 7
+2015-10-17 01:29:40 Saved data: situation1_bin+2, Behaviour 1
+2015-10-17 01:29:40 Saved data: situation2_bin-2, Behaviour 2
+2015-10-17 01:29:40 Saved data: situation2_bin-2, Behaviour 8
+2015-10-17 01:29:40 Saved data: situation2_bin-1, Behaviour 3
+2015-10-17 01:29:40 Saved data: situation2_bin-1, Behaviour 6
+2015-10-17 01:29:40 Saved data: situation2_bin-0, Behaviour 1
+2015-10-17 01:29:40 Saved data: situation2_bin+1, Behaviour 5
+2015-10-17 01:29:40 Saved data: situation2_bin+1, Behaviour 4
+2015-10-17 01:29:40 Saved data: situation2_bin+2, Behaviour 7
+2015-10-17 01:29:40 Saved data: situation3_bin-2, Behaviour 1
+2015-10-17 01:29:40 Saved data: situation3_bin-1, Behaviour 5
+2015-10-17 01:29:40 Saved data: situation3_bin-1, Behaviour 6
+2015-10-17 01:29:40 Saved data: situation3_bin-0, Behaviour 3
+2015-10-17 01:29:40 Saved data: situation3_bin-0, Behaviour 7
+2015-10-17 01:29:40 Saved data: situation3_bin+1, Behaviour 2
+2015-10-17 01:29:40 Saved data: situation3_bin+2, Behaviour 4
+2015-10-17 01:29:40 Saved data: situation3_bin+2, Behaviour 8
+2015-10-17 01:29:40 Saved data: situation4_bin-2, Behaviour 6
+2015-10-17 01:29:40 Saved data: situation4_bin-1, Behaviour 2
+2015-10-17 01:29:40 Saved data: situation4_bin-1, Behaviour 1
+2015-10-17 01:29:40 Saved data: situation4_bin-1, Behaviour 3
+2015-10-17 01:29:40 Saved data: situation4_bin-0, Behaviour 4
+2015-10-17 01:29:40 Saved data: situation4_bin+1, Behaviour 5
+2015-10-17 01:29:40 Saved data: situation4_bin+1, Behaviour 8
+2015-10-17 01:29:40 Saved data: situation4_bin+2, Behaviour 7
