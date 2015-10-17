@@ -100,6 +100,7 @@ io.on('connection', function(socket){
 		});
 	});
 	
+	// for old radio buttons interface
 	socket.on("submitted_data", function(situation_index, button_values) {
 		log_writes = log_writes + 1;
 		//console.log(situation);
@@ -128,6 +129,12 @@ io.on('connection', function(socket){
 		}
 		console.log("Button values were saved");
 		}); */
+	});
+	
+	// for new bins interface
+	
+	socket.on("save_answers", function(sent_behaviour, answer) {
+		console.log("Saved data: " + answer + ", " + sent_behaviour);
 	});
 	
 	socket.on("submitted_preinfo", function(number, order) {

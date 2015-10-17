@@ -181,7 +181,6 @@
 </div>
 
 <div class="confirmselection">
-	<!-- <button type="confirm_behavior1" onclick="location.href='index2.html'; getSelectedButton();" form="form1" value="Confirm">Confirm</button> -->
 	<button type="confirm_behavior1" onclick="confirmSelections();" form="form1" value="Confirm">Confirm selections</button>
 </div>
 
@@ -228,12 +227,24 @@
 	
 	function confirmSelections() {
 		var x = $(".floater");
+		var flag = 0;
 		for (var i = 0; i < x.length; i++) {
 			var answer = x[i].parentNode.getAttribute("id");
-			console.log(x[i].innerHTML + ": " + x[i].parentNode.getAttribute("id"));
+			//console.log(x[i].innerHTML + ": " + x[i].parentNode.getAttribute("id"));
 			if (answer == null) {
-				alert("Please drag each behaviour to a bin before confirming selections.");
+				flag = 1;
 			}
+		}
+		if (flag == 1) {
+			alert("Please drag each behaviour to a bin before confirming selections.");
+		}
+		else {
+			for (var i = 0; i < x.length; i++) {
+				var answer = x[i].parentNode.getAttribute("id");
+				var behaviour = x[i].innerHTML;
+			}		
+			socket.emit("save_answers", behaviour, answer);
+			console.log("sent data");
 		}
 	}
 </script>
