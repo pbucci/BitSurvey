@@ -182,7 +182,7 @@ io.on('connection', function(socket){
 	});
 });
 
-board = new five.Board({port:"COM30"});
+board = new five.Board({port:"COM10"});
 var myServo;
 board.on("ready", function() {
 	myServo = new five.Servo({
