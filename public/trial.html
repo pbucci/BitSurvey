@@ -23,7 +23,8 @@
 </div>
 
 <div id="scenario1" class="scenario">
-    <h1>Scenario 1</h1>
+    <!--<h1>Scenario 1</h1>-->
+	<h1 id="pageheader1"></h1>
     <div class="list darkbg" id="situation1_bin-default">
         <h1>Behaviours</h1>
         <ul class="droptrue sortable1">
@@ -65,7 +66,8 @@
     </div>
 </div>
 <div id="scenario2" class="scenario">
-    <h1>Scenario 2</h1>
+    <!-- <h1>Scenario 2</h1> -->
+	<h1 id="pageheader2"></h1>
     <div class="list darkbg" id="situation2_bin-default">
         <h1>Behaviours</h1>
         <ul class="droptrue sortable1">
@@ -107,7 +109,8 @@
     </div>
 </div>
 <div id="scenario3" class="scenario">
-    <h1>Scenario 3</h1>
+    <!-- <h1>Scenario 3</h1> -->
+	<h1 id="pageheader3"></h1>
     <div class="list darkbg" id="situation3_bin-default">
         <h1>Behaviours</h1>
         <ul class="droptrue sortable1">
@@ -149,7 +152,8 @@
     </div>
 </div>
 <div id="scenario4" class="scenario">
-    <h1>Scenario 4</h1>
+    <!-- <h1>Scenario 4</h1> -->
+	<h1 id="pageheader4"></h1>
     <div class="list darkbg" id="situation4_bin-default">
         <h1>Behaviours</h1>
         <ul class="droptrue sortable1">
@@ -193,8 +197,6 @@
 
 <script>
 	var socket = io('http://localhost:8080');
-	// query situation for index x from server, add to page header
-	socket.emit('query_situation', '3');
 
 	var moved_behavior;
 	var bin_start;
@@ -253,6 +255,24 @@
 			}		
 		}
 	}
+	
+	socket.emit('query_scenarios', '0');
+  
+    socket.on('receive_scenarios', function (data1, data2, data3, data4) {
+		console.log('receive_situation: ' + data1+data2+data3+data4);
+//		var displaySituation = document.createElement("div");
+//		displaySituation.innerHTML = "<h2>FlexiBit feels " + data + "</h2>";
+//		pageheader.appendChild(displaySituation);
+//		setSituation(data); -->
+		var head1 = document.getElementById("pageheader1");
+		head1.innerText = "FlexiBit feels " + data1 + ".";
+		var head2 = document.getElementById("pageheader2");
+		head2.innerText = "FlexiBit feels " + data2 + ".";
+		var head3 = document.getElementById("pageheader3");
+		head3.innerText = "FlexiBit feels " + data3 + ".";
+		var head4 = document.getElementById("pageheader4");
+		head4.innerText = "FlexiBit feels " + data4 + ".";
+	});
 </script>
 
 </body>

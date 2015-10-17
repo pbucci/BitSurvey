@@ -68,6 +68,11 @@ io.on('connection', function(socket){
 		socket.emit('receive_situation', randomized_situations[data]);
 	});
 	
+	socket.on('query_scenarios', function(data){
+		console.log('query_situation: ' + data);
+		socket.emit('receive_scenarios', randomized_situations[data], randomized_situations[1], randomized_situations[2], randomized_situations[3]);
+	});
+	
 	socket.on('query_responses', function(data){
 		console.log('query_responses: ' + data);
 		socket.emit('receive_responses', responses, randomized_situations);
@@ -148,7 +153,12 @@ io.on('connection', function(socket){
 		for (var i = 0; i < randomized_situations.length; i++) {
 			console.log(randomized_situations[i]);
 		}
+		
+		//socket.emit('scenarios', 'cheese');
+		
 	});
+	
+	
 
 	// Test servo motion
 	socket.on('test', function(){
