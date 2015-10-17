@@ -73,68 +73,22 @@ io.on('connection', function(socket){
 		socket.emit('receive_responses', responses, randomized_situations);
 	});
 	
-	
 	socket.on("training_behaviour", function(behaviour_number) {
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
-
-		fs.appendFile("logfile.txt", get_time() + ' Played behaviour (training): ' + 
-			randomized_behaviours[behaviour_number] + ' (' +situation_number + ')\n', function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("Played behaviour: " + randomized_behaviours[behaviour_number]);
-		});
+		write_to_log('Played behaviour (training): ' + 
+			randomized_behaviours[behaviour_number] + '\n');
 	});
 	
 	socket.on("test_behaviour", function(behaviour_number, situation_number) {
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
-
-		fs.appendFile("logfile.txt", get_time() + ' Played behaviour (test): ' + 
-			randomized_behaviours[behaviour_number] + '\n', function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("Played behaviour: " + randomized_behaviours[behaviour_number] + " (" + situation_number + ")");
-		});
+		write_to_log('Played behaviour (test): ' + 
+			randomized_behaviours[behaviour_number] + ' (' + situation_number + ')\n');
 	});
-	
-	// for old radio buttons interface
-	socket.on("submitted_data", function(situation_index, button_values) {
-		log_writes = log_writes + 1;
-		//console.log(situation);
-		console.log(button_values);
-		responses[situation_index] = button_values;
-		
-		//if (log_writes == 1) {
-			fs.appendFile("logfile.txt", get_time() + ' Order of behaviours: ' + randomized_behaviours + '\n', function(err) {
-			if(err) {
-				return console.log(err);
-			}
-			console.log("Behaviour list saved");
-			});			
-		//}
-		
-		fs.appendFile("logfile.txt", get_time() + ' ' + randomized_situations[situation_index] + ' ' + button_values + '\n', function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("Situation + button values were saved");
-		});
-		
-		/* fs.appendFile("testfile.txt", button_values, function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("Button values were saved");
-		}); */
-	});
-	
-	// for new bins interface
 	
 	socket.on("save_answers", function(sent_behaviour, answer) {
-		console.log("Saved data: " + answer + ", " + sent_behaviour);
+		write_to_log("Saved data: " + answer + ", " + sent_behaviour + '\n');
 	});
 	
 	socket.on("submitted_preinfo", function(number, order) {
@@ -144,12 +98,7 @@ io.on('connection', function(socket){
 		
 		participant_number = number;
 
-		fs.appendFile("logfile.txt", get_time() + ' Participant number: ' + number + '\n' + get_time() + ' Bit order: ' + order + '\n', function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("Preinfo saved");
-		});
+		write_to_log('Participant number: ' + number + '\n' + get_time() + ' Bit order: ' + order + '\n');
 				
 		// read randomized list of behaviours
 
@@ -162,7 +111,7 @@ io.on('connection', function(socket){
 		rl.on('line', function (line) {
 			randomized_behaviours[randomized_behaviours.length] = line;
 		});
-		
+			
 		// read randomized list of situations
 
 		randomized_situations = [];
@@ -174,31 +123,26 @@ io.on('connection', function(socket){
 		rl.on('line', function (line) {
 			randomized_situations[randomized_situations.length] = line;
 		});
-
+		
 	});
 	
 	socket.on("submitted_demographics", function(age, gender, education, primary_language, secondary_language, pet_interaction, pet_liking) {
-
-		fs.appendFile("logfile.txt", get_time() + ' Age: ' + age + '\n' + 
-						get_time() + ' Gender: ' + gender + '\n' +
-						get_time() + ' Education: ' + education + '\n' +
-						get_time() + ' Primary language: ' + primary_language + '\n' +
-						get_time() + ' Secondary language: ' + secondary_language + '\n' +
-						get_time() + ' Pet interaction: ' + pet_interaction + '\n' +
-						get_time() + ' Pet liking: ' + pet_liking + '\n', function(err) {
-		if(err) {
-			return console.log(err);
-		}
-		console.log("Preinfo saved");
-		});	
-		
+		write_to_log('Age: ' + age + '\n');
+		write_to_log('Gender: ' + gender + '\n');
+		write_to_log('Education: ' + education + '\n');
+		write_to_log('Primary language: ' + primary_language + '\n');
+		write_to_log('Secondary language: ' + secondary_language + '\n');
+		write_to_log('Pet interaction: ' + pet_interaction + '\n');
+		write_to_log('Pet liking: ' + pet_liking + '\n');
+		write_to_log('Order of behaviours: ' + randomized_behaviours + '\n');
+		write_to_log('Order of situations: ' + randomized_situations + '\n');
 				
 		console.log('Full behaviour list: ' + randomized_behaviours);
 		
 		for (var i = 0; i < randomized_behaviours.length; i++) {
 			console.log(randomized_behaviours[i]);
 		}
-
+		
 		console.log('Full situation list: ' + randomized_situations);
 		
 		for (var i = 0; i < randomized_situations.length; i++) {
@@ -253,6 +197,16 @@ board.on("ready", function() {
     	console.log('Sweep away, my captain.');
 });
 
+function write_to_log(entry) {
+	// TODO: different logfile names for different participants
+	fs.appendFile("logfile.txt", get_time() + " " + entry, function(err) {
+	if(err) {
+		return console.log(err);
+	}
+	console.log("Wrote to logfile: " + entry);
+	});
+}
+
 function get_time() {
 	var current_time = new Date();
 	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '');	
@@ -275,7 +229,6 @@ function makepath(range,path) {
     }
     rendered_path = scaled_points;
 }
-
 
 var timeouts = [];
 function render() {
