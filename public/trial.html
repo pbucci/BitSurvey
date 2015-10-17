@@ -12,9 +12,14 @@
 </head>
 <body>
 <div id="instructions" class="instruction">
-	<h1> <p> Click the "Behaviour" buttons to evaluate each behaviour. </p> 
-		<p> For each Scenario, drop all buttons into the most appropriate bin, from [Mismatch] to [Match]. Click the "Confirm Selections" button when you are satisfied with the placement.</p>
-	</h1>
+	<p> Click the "Behaviour" buttons to evaluate each 	behaviour. </p> 
+	<p> For each Scenario, drop all buttons into the most appropriate bin, from [Mismatch] to [Match]. </p>
+	<p> Click the "Confirm Selections" button when you are satisfied with the placement.</p>
+	
+</div>
+
+<div class="confirmselection">
+		<button type="confirm_behavior1" onclick="confirmSelections();" form="form1" value="Confirm">Confirm selections</button>
 </div>
 
 <div id="scenario1" class="scenario">
@@ -186,9 +191,7 @@
     </div>
 </div>
 
-<div class="confirmselection">
-	<button type="confirm_behavior1" onclick="confirmSelections();" form="form1" value="Confirm">Confirm selections</button>
-</div>
+
 
 <script>
 	var socket = io('http://localhost:8080');
