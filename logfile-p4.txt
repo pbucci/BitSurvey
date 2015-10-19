@@ -1,0 +1,107 @@
+2015-10-19 21.44:40 Bit order: flexibit-ribit
+2015-10-19 21.44:40 Participant number: 4
+2015-10-19 21.44:42 Played training behaviour 1 [mj3]
+2015-10-19 21.44:43 Played training behaviour 2 [lc1]
+2015-10-19 21.44:43 Played training behaviour 3 [mj4]
+2015-10-19 21.44:53 Age: 32
+2015-10-19 21.44:53 Gender: Male
+2015-10-19 21.44:53 Education: Highschool
+2015-10-19 21.44:53 Primary language: oijdewoidje
+2015-10-19 21.44:53 Secondary language: oijdwoij
+2015-10-19 21.44:53 Pet interaction: 1
+2015-10-19 21.44:53 Pet liking: 1
+2015-10-19 21.44:53 Order of behaviours: mj3,lc1,mj4,mj8,jr4,mj1,jr3,lc4
+2015-10-19 21.44:53 Order of situations: stressed,depressed,excited,relaxed
+2015-10-19 21.45:02 Dragged behaviour 2 [lc1]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:02 Dragged behaviour 2 [lc1]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:03 Dragged behaviour 3 [mj4]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:03 Dragged behaviour 3 [mj4]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:04 Dragged behaviour 4 [mj8]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:04 Dragged behaviour 4 [mj8]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:05 Dragged behaviour 5 [jr4]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:05 Dragged behaviour 5 [jr4]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:07 Dragged behaviour 6 [mj1]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:07 Dragged behaviour 6 [mj1]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:08 Dragged behaviour 7 [jr3]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:08 Dragged behaviour 7 [jr3]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:10 Dragged behaviour 8 [lc4]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:10 Dragged behaviour 8 [lc4]: situation1_bin-default -> situation1_bin-2
+2015-10-19 21.45:13 Dragged behaviour 1 [mj3]: situation2_bin-default -> situation2_bin-2
+2015-10-19 21.45:14 Dragged behaviour 1 [mj3]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:17 Dragged behaviour 2 [lc1]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:17 Dragged behaviour 2 [lc1]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:18 Dragged behaviour 3 [mj4]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:18 Dragged behaviour 3 [mj4]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:20 Dragged behaviour 4 [mj8]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:20 Dragged behaviour 4 [mj8]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:21 Dragged behaviour 5 [jr4]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:21 Dragged behaviour 5 [jr4]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:23 Dragged behaviour 6 [mj1]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:23 Dragged behaviour 6 [mj1]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:24 Dragged behaviour 7 [jr3]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:25 Dragged behaviour 7 [jr3]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:26 Dragged behaviour 8 [lc4]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:26 Dragged behaviour 8 [lc4]: situation2_bin-default -> situation2_bin-1
+2015-10-19 21.45:28 Dragged behaviour 1 [mj3]: situation3_bin-default -> situation3_bin-2
+2015-10-19 21.45:30 Dragged behaviour 1 [mj3]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:31 Dragged behaviour 2 [lc1]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:31 Dragged behaviour 2 [lc1]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:33 Dragged behaviour 3 [mj4]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:33 Dragged behaviour 3 [mj4]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:34 Dragged behaviour 5 [jr4]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:34 Dragged behaviour 5 [jr4]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:36 Dragged behaviour 4 [mj8]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:36 Dragged behaviour 4 [mj8]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:38 Dragged behaviour 6 [mj1]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:38 Dragged behaviour 6 [mj1]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:40 Dragged behaviour 7 [jr3]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:40 Dragged behaviour 7 [jr3]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:42 Dragged behaviour 8 [lc4]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:42 Dragged behaviour 8 [lc4]: situation3_bin-default -> situation3_bin-0
+2015-10-19 21.45:45 Dragged behaviour 1 [mj3]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:47 Dragged behaviour 2 [lc1]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:47 Dragged behaviour 2 [lc1]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:48 Dragged behaviour 3 [mj4]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:48 Dragged behaviour 3 [mj4]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:49 Dragged behaviour 4 [mj8]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:49 Dragged behaviour 4 [mj8]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:50 Dragged behaviour 5 [jr4]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:50 Dragged behaviour 5 [jr4]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:52 Dragged behaviour 6 [mj1]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:52 Dragged behaviour 6 [mj1]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:53 Dragged behaviour 7 [jr3]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:53 Dragged behaviour 7 [jr3]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:54 Dragged behaviour 8 [lc4]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:54 Dragged behaviour 8 [lc4]: situation4_bin-default -> situation4_bin-2
+2015-10-19 21.45:58 Saved behaviour 1 [mj3] to situation1_bin-2
+2015-10-19 21.45:58 Saved behaviour 8 [lc4] to situation1_bin-2
+2015-10-19 21.45:58 Saved behaviour 7 [jr3] to situation1_bin-2
+2015-10-19 21.45:58 Saved behaviour 6 [mj1] to situation1_bin-2
+2015-10-19 21.45:58 Saved behaviour 5 [jr4] to situation1_bin-2
+2015-10-19 21.45:59 Saved behaviour 4 [mj8] to situation1_bin-2
+2015-10-19 21.45:59 Saved behaviour 3 [mj4] to situation1_bin-2
+2015-10-19 21.45:59 Saved behaviour 2 [lc1] to situation1_bin-2
+2015-10-19 21.45:59 Saved behaviour 8 [lc4] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 7 [jr3] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 6 [mj1] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 4 [mj8] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 5 [jr4] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 3 [mj4] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 2 [lc1] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 1 [mj3] to situation2_bin-1
+2015-10-19 21.45:59 Saved behaviour 7 [jr3] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 8 [lc4] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 6 [mj1] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 4 [mj8] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 2 [lc1] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 5 [jr4] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 3 [mj4] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 1 [mj3] to situation3_bin-0
+2015-10-19 21.45:59 Saved behaviour 7 [jr3] to situation4_bin-2
+2015-10-19 21.45:59 Saved behaviour 8 [lc4] to situation4_bin-2
+2015-10-19 21.45:59 Saved behaviour 6 [mj1] to situation4_bin-2
+2015-10-19 21.45:59 Saved behaviour 5 [jr4] to situation4_bin-2
+2015-10-19 21.45:59 Saved behaviour 4 [mj8] to situation4_bin-2
+2015-10-19 21.45:59 Saved behaviour 3 [mj4] to situation4_bin-2
+2015-10-19 21.45:59 Saved behaviour 2 [lc1] to situation4_bin-2
+2015-10-19 21.45:59 Saved behaviour 1 [mj3] to situation4_bin-2

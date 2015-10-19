@@ -80,7 +80,7 @@ io.on('connection', function(socket){
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
 		var index = parseInt(behaviour_number) + 1;
-		write_to_log('Played behaviour (training): ' + 
+		write_to_log('Played training behaviour ' + 
 			index + " [" + randomized_behaviours[behaviour_number] + "]");
 	});
 	
@@ -88,21 +88,27 @@ io.on('connection', function(socket){
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
 		var index = parseInt(behaviour_number) + 1;
-		write_to_log('Played behaviour (test): ' + 
+		write_to_log('Played test behaviour ' + 
 			index + " [" + randomized_behaviours[behaviour_number] + '] from ' +
 			situation_number);
 	});
 	
-	socket.on("save_answers", function(sent_behaviour, answer) {
+	socket.on("save_answers", function(sent_behaviour, answer, scenario_times) {
 		var index = parseInt(sent_behaviour) - 1;
-		write_to_log("Saved: " + sent_behaviour + " [" + randomized_behaviours[index] +
+		write_to_log("Saved behaviour " + sent_behaviour + " [" + randomized_behaviours[index] +
 			"] to " + answer);
+	});
+	
+	socket.on("save_times", function(scenario_times) {
+		for (var	 i; i < 4; i++) {
+			write_to_log("Time spent on situation " + i + " (" + randomized_situations[i] + "): " + parseInt(scenario_times) + " seconds");
+		}
 	});
 	
 	socket.on("log_dragging", function(moved_behaviour, bin_start, bin_end) {
 		var index = parseInt(moved_behaviour) + 1;
-		write_to_log("Dragged: Behaviour " + index + " [" + randomized_behaviours[moved_behaviour] +
-			"] from " + bin_start + " to " + bin_end);
+		write_to_log("Dragged behaviour " + index + " [" + randomized_behaviours[moved_behaviour] +
+			"]: " + bin_start + " -> " + bin_end);
 	});
 	
 	socket.on("submitted_preinfo", function(number, order) {
@@ -216,7 +222,7 @@ board.on("ready", function() {
 
 function write_to_log(entry) {
 	// TODO: different logfile names for different participants
-	fs.appendFile("logfile.txt", get_time() + " " + entry + '\n', function(err) {
+	fs.appendFile("logfile-p" + participant_number + ".txt", get_time() + " " + entry + '\n', function(err) {
 	if(err) {
 		return console.log(err);
 	}
@@ -226,7 +232,13 @@ function write_to_log(entry) {
 
 function get_time() {
 	var current_time = new Date();
-	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '');	
+	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:/, '.');	
+	return current_time;
+}
+
+function get_time_logfile() {
+	var current_time = new Date();
+	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:/, '.');	
 	return current_time;
 }
 

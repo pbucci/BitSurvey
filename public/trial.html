@@ -203,8 +203,9 @@
 	var bin_end;
 	var situation;
 	
-	var seconds1, seconds2, seconds3, seconds4 = 0;
-	var seconds_in, seconds_out = 0;
+	var scenario_times = [0, 0, 0, 0];
+	var seconds_in = 0;
+	var seconds_out = 0;
 	
 	$(document).ready(function(){
 		$('[class^=floater]').click(function(){
@@ -239,20 +240,33 @@
 		});
 	});
 	
-	var i = 0;
-	$("#scenario1")
-		.mouseover(function() {
-			seconds_in = new Date().getTime() / 1000;		
-			//console.log("in: " + seconds_in);
-			//$( this ).find( "span" ).text( "mouse over x " + i );
+	var name;
+	
+	// log mouseover and mouseout events to calculate time spent in each scenario
+	$("[id^=scenario]")
+		.mouseover(function(event, ui) {
+			// check that the element is "scenariox"" 
+			if (event.target.id.length == 9) {
+				name = event.target.id;
+				name = +name[8] - 1;
+				seconds_in = new Date().getTime() / 1000;
+				//console.log(name);
+			}
 		})
 		.mouseout(function() {
 			seconds_out = new Date().getTime() / 1000;
-			seconds1 = seconds1 + (seconds_in - seconds_out);			
-			//	$( this ).find( "span" ).text( "mouse out " );
-			console.log("scenario1: " + seconds1);
+			// no initial mouseover available (mouse inside area when page loaded)
+			if (seconds_in == 0) {
+				seconds_in = seconds_out;
+			}
+			scenario_times[name] = scenario_times[name] + (seconds_out - seconds_in);
+			var name_tmp = +name + 1;
+			console.log("scenario " + name_tmp + ": " + scenario_times[name]);
 		});
-		
+	
+	var i = 0;
+
+	// process user selections
 	function confirmSelections() {
 		var x = $(".floater");
 		var flag = 0;
@@ -271,9 +285,10 @@
 				var answer = x[i].parentNode.getAttribute("id");
 				var behaviour = x[i].innerHTML;
 				socket.emit("save_answers", behaviour[10], answer);
-				console.log(behaviour[10], answer);		
+				console.log(behaviour[10], answer);
 			}
-			alert("Thank you, your selections have been saved.");
+			socket.emit("save_times", scenario_times);
+			alert("Thank you, your selections have been recorded.");
 		}
 	}
 	
