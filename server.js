@@ -60,9 +60,7 @@ io.on('connection', function(socket){
 	socket.on('disconnect', function(){
 		console.log('User disconnected.');
 	});
-	
-	//socket.emit('news', {hello: 'world'});
-	
+		
 	socket.on('query_situation', function(data){
 		console.log('query_situation: ' + data);
 		socket.emit('receive_situation', randomized_situations[data]);
@@ -81,19 +79,30 @@ io.on('connection', function(socket){
 	socket.on("training_behaviour", function(behaviour_number) {
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
+		var index = parseInt(behaviour_number) + 1;
 		write_to_log('Played behaviour (training): ' + 
-			randomized_behaviours[behaviour_number] + '\n');
+			index + " [" + randomized_behaviours[behaviour_number] + "]");
 	});
 	
 	socket.on("test_behaviour", function(behaviour_number, situation_number) {
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
+		var index = parseInt(behaviour_number) + 1;
 		write_to_log('Played behaviour (test): ' + 
-			randomized_behaviours[behaviour_number] + ' (' + situation_number + ')\n');
+			index + " [" + randomized_behaviours[behaviour_number] + '] from ' +
+			situation_number);
 	});
 	
 	socket.on("save_answers", function(sent_behaviour, answer) {
-		write_to_log("Saved data: " + answer + ", " + sent_behaviour + '\n');
+		var index = parseInt(sent_behaviour) - 1;
+		write_to_log("Saved: " + sent_behaviour + " [" + randomized_behaviours[index] +
+			"] to " + answer);
+	});
+	
+	socket.on("log_dragging", function(moved_behaviour, bin_start, bin_end) {
+		var index = parseInt(moved_behaviour) + 1;
+		write_to_log("Dragged: Behaviour " + index + " [" + randomized_behaviours[moved_behaviour] +
+			"] from " + bin_start + " to " + bin_end);
 	});
 	
 	socket.on("submitted_preinfo", function(number, order) {
@@ -103,7 +112,8 @@ io.on('connection', function(socket){
 		
 		participant_number = number;
 
-		write_to_log('Participant number: ' + number + '\n' + get_time() + ' Bit order: ' + order + '\n');
+		write_to_log('Participant number: ' + number);
+		write_to_log('Bit order: ' + order);
 				
 		// read randomized list of behaviours
 
@@ -132,15 +142,15 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on("submitted_demographics", function(age, gender, education, primary_language, secondary_language, pet_interaction, pet_liking) {
-		write_to_log('Age: ' + age + '\n');
-		write_to_log('Gender: ' + gender + '\n');
-		write_to_log('Education: ' + education + '\n');
-		write_to_log('Primary language: ' + primary_language + '\n');
-		write_to_log('Secondary language: ' + secondary_language + '\n');
-		write_to_log('Pet interaction: ' + pet_interaction + '\n');
-		write_to_log('Pet liking: ' + pet_liking + '\n');
-		write_to_log('Order of behaviours: ' + randomized_behaviours + '\n');
-		write_to_log('Order of situations: ' + randomized_situations + '\n');
+		write_to_log('Age: ' + age);
+		write_to_log('Gender: ' + gender);
+		write_to_log('Education: ' + education);
+		write_to_log('Primary language: ' + primary_language);
+		write_to_log('Secondary language: ' + secondary_language);
+		write_to_log('Pet interaction: ' + pet_interaction);
+		write_to_log('Pet liking: ' + pet_liking);
+		write_to_log('Order of behaviours: ' + randomized_behaviours);
+		write_to_log('Order of situations: ' + randomized_situations);
 				
 		console.log('Full behaviour list: ' + randomized_behaviours);
 		
@@ -155,11 +165,8 @@ io.on('connection', function(socket){
 		}
 		
 		//socket.emit('scenarios', 'cheese');
-		
 	});
 	
-	
-
 	// Test servo motion
 	socket.on('test', function(){
         	io.emit('server_message', 'Started arduino sweep.');
@@ -192,7 +199,7 @@ io.on('connection', function(socket){
 	});
 });
 
-board = new five.Board({port:"COM10"});
+board = new five.Board({port:"COM30"});
 var myServo;
 board.on("ready", function() {
 	myServo = new five.Servo({
@@ -209,7 +216,7 @@ board.on("ready", function() {
 
 function write_to_log(entry) {
 	// TODO: different logfile names for different participants
-	fs.appendFile("logfile.txt", get_time() + " " + entry, function(err) {
+	fs.appendFile("logfile.txt", get_time() + " " + entry + '\n', function(err) {
 	if(err) {
 		return console.log(err);
 	}

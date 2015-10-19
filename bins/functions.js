@@ -22,7 +22,12 @@ function setSituation(data) {
 	situation = data;
 }
 
-function saveData(situation_index){
+function logDragging(moved_behavior, bin_start, bin_end) {
+	socket.emit("log_dragging", moved_behavior, bin_start, bin_end);
+}
+
+// for old radio buttons interface
+function saveData(situation_index) {
 	/* var tmp = document.getElementsByName('situation');
 	situation = tmp[0].value; */
 	console.log(situation);
