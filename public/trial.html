@@ -242,26 +242,25 @@
 	
 	var name;
 	
-	// log mouseover and mouseout events to calculate time spent in each scenario
-	$("[id^=scenario]")
-		.mouseover(function(event, ui) {
-			// check that the element is "scenariox"" 
-			if (event.target.id.length == 9) {
-				name = event.target.id;
-				name = +name[8] - 1;
-				seconds_in = new Date().getTime() / 1000;
-				//console.log(name);
-			}
+	// log mouseenter and mouseleave events to calculate time spent on each scenario
+	$('[id^=scenario]')
+		.mouseenter(function() {
+			var myid = $(this)[0].id;
+			name = +myid[8] - 1;
+			seconds_in = new Date().getTime() / 1000;
+			event.stopPropagation();
 		})
-		.mouseout(function() {
+	$('[id^=scenario]')
+		.mouseleave(function() {
 			seconds_out = new Date().getTime() / 1000;
-			// no initial mouseover available (mouse inside area when page loaded)
+			// no initial mouseenter available (mouse inside area when page loaded)?
 			if (seconds_in == 0) {
 				seconds_in = seconds_out;
 			}
 			scenario_times[name] = scenario_times[name] + (seconds_out - seconds_in);
 			var name_tmp = +name + 1;
 			console.log("scenario " + name_tmp + ": " + scenario_times[name]);
+			seconds_in = 0;
 		});
 	
 	var i = 0;

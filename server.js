@@ -100,8 +100,9 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on("save_times", function(scenario_times) {
-		for (var	 i; i < 4; i++) {
-			write_to_log("Time spent on situation " + i + " (" + randomized_situations[i] + "): " + parseInt(scenario_times) + " seconds");
+		for (var i = 0; i < 4; i++) {
+			var tmp = +i + 1;
+			write_to_log("Time spent on situation " + tmp + " (" + randomized_situations[i] + "): " + parseInt(scenario_times[i]) + " seconds");
 		}
 	});
 	
