@@ -203,6 +203,9 @@
 	var bin_end;
 	var situation;
 	
+	var seconds1, seconds2, seconds3, seconds4 = 0;
+	var seconds_in, seconds_out = 0;
+	
 	$(document).ready(function(){
 		$('[class^=floater]').click(function(){
 			situation = $(this).closest("div").attr("id");
@@ -236,6 +239,20 @@
 		});
 	});
 	
+	var i = 0;
+	$("#scenario1")
+		.mouseover(function() {
+			seconds_in = new Date().getTime() / 1000;		
+			//console.log("in: " + seconds_in);
+			//$( this ).find( "span" ).text( "mouse over x " + i );
+		})
+		.mouseout(function() {
+			seconds_out = new Date().getTime() / 1000;
+			seconds1 = seconds1 + (seconds_in - seconds_out);			
+			//	$( this ).find( "span" ).text( "mouse out " );
+			console.log("scenario1: " + seconds1);
+		});
+		
 	function confirmSelections() {
 		var x = $(".floater");
 		var flag = 0;

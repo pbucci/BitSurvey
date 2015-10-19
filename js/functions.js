@@ -76,7 +76,7 @@ function submitPreinfo(){
 	var order = document.getElementsByName('bitorder');
 	order = order[0].value;
 	console.log(order);
-	location.href='/public/demographics.html';
+	location.href='/public/training.html';
 	socket.emit("submitted_preinfo", number, order);
 }
 
@@ -166,7 +166,7 @@ function submitDemographics() {
 		alert("Please answer all questions before proceeding.");
 	}
 	else {
-		location.href='training.html';
+		location.href='trial.html';
 		socket.emit("submitted_demographics", age, gender, education, primary_language, secondary_language, 
 			pet_interaction, pet_liking);
 	}

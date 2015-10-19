@@ -81,7 +81,7 @@ function submitPreinfo(){
 	var order = document.getElementsByName('bitorder');
 	order = order[0].value;
 	console.log(order);
-	location.href='/public/demographics.html';
+	location.href='/public/training.html';
 	socket.emit("submitted_preinfo", number, order);
 }
 
