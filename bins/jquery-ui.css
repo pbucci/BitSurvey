@@ -77,7 +77,11 @@
 
 /* Misc visuals
 ----------------------------------*/
-
+.drop-hover
+        {
+            #background-color: #FFFF55 !important;
+            border: 2px solid #bbb;
+        } 
 /* Overlays */
 .ui-widget-overlay {
 	position: fixed;

@@ -2686,7 +2686,7 @@ $.widget( "ui.droppable", {
 		activeClass: false,
 		addClasses: true,
 		greedy: false,
-		hoverClass: false,
+		hoverClass: 'drop-hover',
 		scope: "default",
 		tolerance: "intersect",
 
@@ -3061,7 +3061,6 @@ $.ui.ddmanager = {
 };
 
 var droppable = $.ui.droppable;
-
 
 /*!
  * jQuery UI Resizable 1.11.4
@@ -5771,7 +5770,10 @@ var sortable = $.widget("ui.sortable", $.ui.mouse, {
 
 });
 
-
+function handle_drop_patient(event, ui) {
+     $(this).append( $(ui.draggable).clone().css({'float':'left','display':'block'}) );
+     $(ui.draggable).remove();
+}
 /*!
  * jQuery UI Accordion 1.11.4
  * http://jqueryui.com
