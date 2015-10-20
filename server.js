@@ -44,8 +44,7 @@ var randomized_behaviours = [];  // list of randomized behaviours (8) read from 
 var randomized_situations = [];  // list of randomized situations (4) read from a text file
 var responses = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 var log_writes = 0;
-var bit_order = ["", ""];
-var current_bit = 0;
+var bit_order = "";
 
 var log_time = 0;
 
@@ -72,8 +71,7 @@ io.on('connection', function(socket){
 	
 	socket.on('query_bit_order', function(data){
 		console.log('query_bit_order: ' + data);
-		current_bit = data;
-		socket.emit('receive_bit_order', bit_order[0], bit_order[1]);
+		socket.emit('receive_bit_order', bit_order);
 	});
 	
 	socket.on('query_scenarios', function(data){
@@ -90,7 +88,7 @@ io.on('connection', function(socket){
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
 		render();
 		var index = parseInt(behaviour_number) + 1;
-		write_to_log('Played training behaviour ' + 
+		write_to_log(bit_order + ": Played training behaviour " + 
 			index + " [" + randomized_behaviours[behaviour_number] + "]");
 	});
 	
@@ -99,44 +97,61 @@ io.on('connection', function(socket){
 		// scale for ribit
 		render();
 		var index = parseInt(behaviour_number) + 1;
-		write_to_log('Played test behaviour ' + 
+		write_to_log(bit_order + ": Played test behaviour " + 
 			index + " [" + randomized_behaviours[behaviour_number] + '] from ' +
 			situation_number);
 	});
 	
 	socket.on("save_answers", function(sent_behaviour, answer, scenario_times) {
 		var index = parseInt(sent_behaviour) - 1;
-		write_to_log("Saved behaviour " + sent_behaviour + " [" + randomized_behaviours[index] +
+		write_to_log(bit_order + ": Saved behaviour " + sent_behaviour + " [" + randomized_behaviours[index] +
 			"] to " + answer);
 	});
 	
 	socket.on("save_times", function(scenario_times) {
 		for (var i = 0; i < 4; i++) {
 			var tmp = +i + 1;
-			write_to_log("Time spent on situation " + tmp + " (" + randomized_situations[i] + "): " + parseInt(scenario_times[i]) + " seconds");
+			write_to_log(bit_order + ": Time spent on situation " + tmp + " (" + randomized_situations[i] + "): " + parseInt(scenario_times[i]) + " seconds");
 		}
 	});
 	
 	socket.on("log_dragging", function(moved_behaviour, bin_start, bin_end) {
 		var index = parseInt(moved_behaviour) + 1;
-		write_to_log("Dragged behaviour " + index + " [" + randomized_behaviours[moved_behaviour] +
+		write_to_log(bit_order + ": Dragged behaviour " + index + " [" + randomized_behaviours[moved_behaviour] +
 			"]: " + bin_start + " -> " + bin_end);
 	});
 	
 	socket.on("submitted_preinfo", function(number, order) {
-		if (order == 12) {
-			console.log('FlexiBit first');
-			bit_order = ["FlexiBit", "RiBit"];
-		}
-		else {
-			console.log('RiBit first');
-			bit_order = ["RiBit", "FlexiBit"];			
-		}
 		
+		board = new five.Board({port:"COM30"});
+		var range_end = 0;
+		if (myServo == null) {
+			if (bit_order == "FlexiBit") {
+				range_end = 180;
+			}
+			else {
+				range_end = 90;
+			}		
+			board.on("ready", function() {
+				myServo = new five.Servo({
+					pin:9,
+					center:true,
+					range: [0,range_end]
+				});
+				board.repl.inject({
+					servo: myServo
+				});
+				io.emit('server_message','Ready to start board.');
+					console.log('Sweep away, my captain.');
+			});
+		}
+
+		console.log('Bit: ' + order);
+		bit_order = order;
 		participant_number = number;
 
 		write_to_log('Participant number: ' + number);
-		write_to_log('Bit order: ' + bit_order);
+		write_to_log('Bit type: ' + bit_order);
 				
 		// read randomized list of behaviours
 
@@ -222,24 +237,8 @@ io.on('connection', function(socket){
 	});
 });
 
-board = new five.Board({port:"COM30"});
-var myServo;
-board.on("ready", function() {
-	myServo = new five.Servo({
-		pin:9,
-		center:true,
-		range: [0,180]
-		//range: [0,90]
-	});
-	board.repl.inject({
-		servo: myServo
-	});
-	io.emit('server_message','Ready to start board.');
-    	console.log('Sweep away, my captain.');
-});
-
 function write_to_log(entry) {
-	fs.appendFile("logfile-p" + participant_number + ".txt", get_time() + " " + entry + '\n', function(err) {
+	fs.appendFile("logfile-p" + participant_number + "-" + bit_order + ".txt", get_time() + " " + entry + '\n', function(err) {
 	if(err) {
 		return console.log(err);
 	}
@@ -298,17 +297,16 @@ function stop_render() {
 }
 function doSetTimeout(i) {
     var t = setTimeout(function(){
-		var index = +current_bit - 1;
 		var modified_path;
-		if (bit_order[index] == "FlexiBit") {
+		if (bit_order == "FlexiBit") {
 			modified_path = rendered_path[i];
 		}
 		else {
 			// change rendering range for RiBit
-			modified_path = rendered_path[i] / 2;
+			modified_path = rendered_path[i] / 3;
 		}
 		myServo.to(modified_path);		
-		console.log(bit_order[index] + ': Moving servo to ' + modified_path);		
+		console.log(bit_order + ': Moving servo to ' + modified_path);		
     },5 * i);
     return t;
 }

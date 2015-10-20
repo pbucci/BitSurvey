@@ -84,7 +84,7 @@ function submitPreinfo(){
 	location.href='/public/demographics.html';
 	socket.emit("submitted_preinfo", number, order);
 }
-
+	
 function submitDemographics() {
 	
 	var alert_flag = 0;

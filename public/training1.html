@@ -12,8 +12,8 @@
 </head>
 <body>
 <div id="instructions" class="instruction">
-	<p><strong>Practice 1</strong></p>
-	<p> Click the "Behaviour" buttons to evaluate each behaviour. For each Scenario, drop all buttons into the most appropriate bin, from [Mismatch] to [Match]. </p>
+	<p><strong>Practice</strong></p>
+	<p> Click the "Behaviour" buttons to try each behaviour. </p>
 	<p> Click the "Ready to Proceed" button when you have familiarized yourself with the behaviours and interface.</p>
 </div>
 
@@ -206,8 +206,7 @@
 	var seconds_in = 0;
 	var seconds_out = 0;
 	
-	var bit_name1;
-	var bit_name2;
+	var bit_name;
 	
 	$(document).ready(function(){
 		$('[class^=floater]').click(function(){
@@ -291,10 +290,9 @@
 	
 	socket.emit('query_bit_order', '1');
 	
-	socket.on('receive_bit_order', function(bits_tmp1, bits_tmp2) {
-		console.log('receive_bit_order: ' + bits_tmp1 + ", " + bits_tmp2);
-		bit_name1 = bits_tmp1;
-		bit_name2 = bits_tmp2;
+	socket.on('receive_bit_order', function(bits_tmp) {
+		console.log('receive_bit_order: ' + bits_tmp);
+		bit_name = bits_tmp;
 	});
 
 	socket.emit('query_scenarios', '0');
@@ -306,13 +304,13 @@
 //		pageheader.appendChild(displaySituation);
 //		setSituation(data); -->
 		var head1 = document.getElementById("pageheader1");
-		head1.innerText = bit_name1 + " feels " + data1;
+		head1.innerText = bit_name + " feels " + data1;
 		var head2 = document.getElementById("pageheader2");
-		head2.innerText = bit_name1 + " feels " + data2;
+		head2.innerText = bit_name + " feels " + data2;
 		var head3 = document.getElementById("pageheader3");
-		head3.innerText = bit_name1 + " feels " + data3;
+		head3.innerText = bit_name + " feels " + data3;
 		var head4 = document.getElementById("pageheader4");
-		head4.innerText = bit_name1 + " feels " + data4;
+		head4.innerText = bit_name + " feels " + data4;
 	});
 </script>
 
