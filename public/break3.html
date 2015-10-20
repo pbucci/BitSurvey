@@ -7,36 +7,13 @@
 <body>
 
 <div class="pageheader">
-	<h2>BitSurvey</h2>
-	<p>Please fill in the participant number and bit order.</p>
-</div><!--.question-->
-
-<div class="question">
-	Participant number (required: 1-20)
-</div><!--question-->
-
-<div class="answerfield">
-	<input type="text" name="participantnumber" value="1">
-</div><!--answerfield-->
-
-<div class="blank"></div>
-
-<div class="question">
-	Bit order
-</div><!--question-->
-
-<div class="answerfield">
-	<select name="bitorder">
-    <option value="12">FlexiBit first</option>
-    <option value="21">RiBit first</option>
-  </select>
-</div><!--answerfield-->
-
-<div class="blank"></div>
+	<h2>Practice 2 ended</h2>
+	<p>Please click "Proceed" when you are ready to start Experiment block 2.</p>
+</div><!--.pageheader-->
 
 <div class="confirminfo">
 	<!-- <button type="confirm_behavior1" onclick="location.href='index2.html'; getSelectedButton();" form="form1" value="Confirm">Confirm</button> -->
-	<button type="confirm_behavior1" onclick="submitPreinfo();" form="form1" value="Proceed">Proceed</button>
+	<button type="confirm_behavior1" onclick="window.location.href='/public/trial_bit2.html';" form="form1" value="Proceed">Proceed</button>
 </div>
 
 <script>
@@ -45,7 +22,7 @@
 		console.log(data);
 		socket.emit('my other event', { my: 'data' });
 	});
-  
+
 	/* function getCheckedRadio(radio_group) {
 		for (var i = 0; i < radio_group.length; i++) {
 			var button = radio_group[i];

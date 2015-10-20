@@ -12,14 +12,13 @@
 </head>
 <body>
 <div id="instructions" class="instruction">
-	<p> Click the "Behaviour" buttons to evaluate each 	behaviour. </p> 
-	<p> For each Scenario, drop all buttons into the most appropriate bin, from [Mismatch] to [Match]. </p>
-	<p> Click the "Confirm Selections" button when you are satisfied with the placement.</p>
-	
+	<p><strong>Practice 2</strong></p>
+	<p> Click the "Behaviour" buttons to evaluate each behaviour. For each Scenario, drop all buttons into the most appropriate bin, from [Mismatch] to [Match]. </p>
+	<p> Click the "Ready to Proceed" button when you have familiarized yourself with the behaviours and interface.</p>
 </div>
 
 <div class="confirmselection">
-	<button type="confirm_behavior1" onclick="confirmSelections();" form="form1" value="Confirm">Confirm selections</button>
+	<button type="confirm_behavior1" onclick="window.location.href='/public/break3	.html';" form="form1" value="Confirm">Ready to Proceed</button>
 </div>
 
 <div id="scenario1" class="scenario">
@@ -207,13 +206,16 @@
 	var seconds_in = 0;
 	var seconds_out = 0;
 	
+	var bit_name1;
+	var bit_name2;
+	
 	$(document).ready(function(){
 		$('[class^=floater]').click(function(){
 			situation = $(this).closest("div").attr("id");
 			var played = $(this).attr("value");
-			playTestBehaviour(played, situation);
+			playTrainingBehaviour(played, situation);
 			console.log("Played: Behaviour " + played + ": " + situation);
-		});		
+		});
 	});
 	
 	$('[class^=floater]').mousedown(function(){
@@ -258,7 +260,7 @@
 				seconds_in = seconds_out;
 			}
 			scenario_times[name] = scenario_times[name] + (seconds_out - seconds_in);
-			var name_tmp = +name + 1;
+				var name_tmp = +name + 1;
 			console.log("scenario " + name_tmp + ": " + scenario_times[name]);
 			seconds_in = 0;
 		});
@@ -276,23 +278,27 @@
 				flag = 1;
 			}
 		}
-		if (flag == 1) {
-			alert("Please drag each behaviour to a bin before confirming selections.");
+		for (var i = 0; i < x.length; i++) {
+			var answer = x[i].parentNode.getAttribute("id");
+			var behaviour = x[i].innerHTML;
+			//socket.emit("save_answers", behaviour[10], answer);
+			//console.log(behaviour[10], answer);
 		}
-		else {
-			for (var i = 0; i < x.length; i++) {
-				var answer = x[i].parentNode.getAttribute("id");
-				var behaviour = x[i].innerHTML;
-				socket.emit("save_answers", behaviour[10], answer);
-				console.log(behaviour[10], answer);
-			}
-			socket.emit("save_times", scenario_times);
-			alert("Thank you, your selections have been recorded.");
-		}
+		//socket.emit("save_times", scenario_times);
+		//alert("Thank you, your selections have been recorded.");
+		location.href='/public/break1.html';
 	}
 	
+	socket.emit('query_bit_order', '2');
+	
+	socket.on('receive_bit_order', function(bits_tmp1, bits_tmp2) {
+		console.log('receive_bit_order: ' + bits_tmp1 + ", " + bits_tmp2);
+		bit_name1 = bits_tmp1;
+		bit_name2 = bits_tmp2;
+	});
+
 	socket.emit('query_scenarios', '0');
-  
+		
     socket.on('receive_scenarios', function (data1, data2, data3, data4) {
 		console.log('receive_situation: ' + data1+data2+data3+data4);
 //		var displaySituation = document.createElement("div");
@@ -300,13 +306,13 @@
 //		pageheader.appendChild(displaySituation);
 //		setSituation(data); -->
 		var head1 = document.getElementById("pageheader1");
-		head1.innerText = "FlexiBit feels " + data1 + ".";
+		head1.innerText = bit_name2 + " feels " + data1;
 		var head2 = document.getElementById("pageheader2");
-		head2.innerText = "FlexiBit feels " + data2 + ".";
+		head2.innerText = bit_name2 + " feels " + data2;
 		var head3 = document.getElementById("pageheader3");
-		head3.innerText = "FlexiBit feels " + data3 + ".";
+		head3.innerText = bit_name2 + " feels " + data3;
 		var head4 = document.getElementById("pageheader4");
-		head4.innerText = "FlexiBit feels " + data4 + ".";
+		head4.innerText = bit_name2 + " feels " + data4;
 	});
 </script>
 

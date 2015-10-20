@@ -44,6 +44,10 @@ var randomized_behaviours = [];  // list of randomized behaviours (8) read from 
 var randomized_situations = [];  // list of randomized situations (4) read from a text file
 var responses = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
 var log_writes = 0;
+var bit_order = ["", ""];
+var current_bit = 0;
+
+var log_time = 0;
 
 //------------------------------------------------------------------------------
 // Socket setup
@@ -66,6 +70,12 @@ io.on('connection', function(socket){
 		socket.emit('receive_situation', randomized_situations[data]);
 	});
 	
+	socket.on('query_bit_order', function(data){
+		console.log('query_bit_order: ' + data);
+		current_bit = data;
+		socket.emit('receive_bit_order', bit_order[0], bit_order[1]);
+	});
+	
 	socket.on('query_scenarios', function(data){
 		console.log('query_situation: ' + data);
 		socket.emit('receive_scenarios', randomized_situations[data], randomized_situations[1], randomized_situations[2], randomized_situations[3]);
@@ -86,6 +96,7 @@ io.on('connection', function(socket){
 	
 	socket.on("test_behaviour", function(behaviour_number, situation_number) {
 		rendered_path = mapping[randomized_behaviours[behaviour_number]];
+		// scale for ribit
 		render();
 		var index = parseInt(behaviour_number) + 1;
 		write_to_log('Played test behaviour ' + 
@@ -113,14 +124,19 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on("submitted_preinfo", function(number, order) {
-		log_writes = 0;
-		console.log(number);
-		console.log(order);
+		if (order == 12) {
+			console.log('FlexiBit first');
+			bit_order = ["FlexiBit", "RiBit"];
+		}
+		else {
+			console.log('RiBit first');
+			bit_order = ["RiBit", "FlexiBit"];			
+		}
 		
 		participant_number = number;
 
 		write_to_log('Participant number: ' + number);
-		write_to_log('Bit order: ' + order);
+		write_to_log('Bit order: ' + bit_order);
 				
 		// read randomized list of behaviours
 
@@ -213,6 +229,7 @@ board.on("ready", function() {
 		pin:9,
 		center:true,
 		range: [0,180]
+		//range: [0,90]
 	});
 	board.repl.inject({
 		servo: myServo
@@ -222,7 +239,6 @@ board.on("ready", function() {
 });
 
 function write_to_log(entry) {
-	// TODO: different logfile names for different participants
 	fs.appendFile("logfile-p" + participant_number + ".txt", get_time() + " " + entry + '\n', function(err) {
 	if(err) {
 		return console.log(err);
@@ -233,15 +249,15 @@ function write_to_log(entry) {
 
 function get_time() {
 	var current_time = new Date();
-	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:/, '.');	
+	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:/, '.');
+	//current_time = current_time.setUTCHours(current_time.getUTCHours() - 7);
 	return current_time;
 }
 
-function get_time_logfile() {
-	var current_time = new Date();
-	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:/, '.');	
-	return current_time;
-}
+//function set_log_time() {
+//	log_time = new Date().toISOString();
+//	log_time = log_time.setUTCHours(log_time.getUTCHours() - 7);
+//} 
 
 // maps the server message to 0-180 degrees
 function makepath(range,path) {
@@ -282,8 +298,17 @@ function stop_render() {
 }
 function doSetTimeout(i) {
     var t = setTimeout(function(){
-        myServo.to(rendered_path[i]);
-        //console.log('Moving servo to ' + rendered_path[i]);
+		var index = +current_bit - 1;
+		var modified_path;
+		if (bit_order[index] == "FlexiBit") {
+			modified_path = rendered_path[i];
+		}
+		else {
+			// change rendering range for RiBit
+			modified_path = rendered_path[i] / 2;
+		}
+		myServo.to(modified_path);		
+		console.log(bit_order[index] + ': Moving servo to ' + modified_path);		
     },5 * i);
     return t;
 }

@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>BitSurvey</title>
+  <script src="/bins/jquery.js"></script>
+  <script src="/bins/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/bins/jquery-ui.css">
+  <link rel="stylesheet" href="/bins/style.css">
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="/bins/functions.js"></script>
+</head>
+<body>
+<div id="instructions" class="instruction">
+	<p><strong>Experiment block 1</strong></p>
+	<p>Click the "Behaviour" buttons to evaluate each behaviour. For each Scenario, drop all buttons into the most appropriate bin, from [Mismatch] to [Match]. </p>
+	<p> Click the "Confirm Selections" button when you are satisfied with the placement.</p>
+		
+</div>
+
+<div class="confirmselection">
+	<button type="confirm_behavior1" onclick="confirmSelections();" form="form1" value="Confirm">Confirm Selections</button>
+</div>
+
+<div id="scenario1" class="scenario">
+    <!--<h1>Scenario 1</h1>-->
+	<h1 id="pageheader1"></h1>
+    <div class="list darkbg" id="situation1_bin-default">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater" value="0">Behaviour 1</li>
+          <li class="floater" value="1">Behaviour 2</li>
+          <li class="floater" value="2">Behaviour 3</li>
+          <li class="floater" value="3">Behaviour 4</li>
+          <li class="floater" value="4">Behaviour 5</li>
+          <li class="floater" value="5">Behaviour 6</li>
+          <li class="floater" value="6">Behaviour 7</li>
+          <li class="floater" value="7">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list" id="situation1_bin-2">
+        <h1><span id="match">Mismatch</span><br/>-2</h1>
+        <ul class="droptrue sortable1" id="situation1_bin-2">
+        </ul>
+    </div>
+    <div class="list" id="situation1_bin-1">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1" id="situation1_bin-1">
+        </ul>
+    </div>
+    <div class="list" id="situation1_bin-0">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1" id="situation1_bin-0">
+        </ul>
+    </div>
+    <div class="list" id="situation1_bin+1">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1" id="situation1_bin+1">
+        </ul>
+    </div>
+    <div class="list" id="situation1_bin+2">
+        <h1><span id="match">Match</span><br/>2</h1>
+        <ul class="droptrue sortable1" id="situation1_bin+2">
+        </ul>
+    </div>
+</div>
+<div id="scenario2" class="scenario">
+    <!-- <h1>Scenario 2</h1> -->
+	<h1 id="pageheader2"></h1>
+    <div class="list darkbg" id="situation2_bin-default">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater" value="0">Behaviour 1</li>
+          <li class="floater" value="1">Behaviour 2</li>
+          <li class="floater" value="2">Behaviour 3</li>
+          <li class="floater" value="3">Behaviour 4</li>
+          <li class="floater" value="4">Behaviour 5</li>
+          <li class="floater" value="5">Behaviour 6</li>
+          <li class="floater" value="6">Behaviour 7</li>
+          <li class="floater" value="7">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list" id="situation2_bin-2">
+        <h1><span id="match">Mismatch</span><br/>-2</h1>
+        <ul class="droptrue sortable1" id="situation2_bin-2">
+        </ul>
+    </div>
+    <div class="list" id="situation2_bin-1">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1" id="situation2_bin-1">
+        </ul>
+    </div>
+    <div class="list" id="situation2_bin-0">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1" id="situation2_bin-0">
+        </ul>
+    </div>
+    <div class="list" id="situation2_bin+1">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1" id="situation2_bin+1">
+        </ul>
+    </div>
+    <div class="list" id="situation2_bin+2">
+        <h1><span id="match">Match</span><br/>2</h1>
+        <ul class="droptrue sortable1" id="situation2_bin+2">
+        </ul>
+    </div>
+</div>
+<div id="scenario3" class="scenario">
+    <!-- <h1>Scenario 3</h1> -->
+	<h1 id="pageheader3"></h1>
+    <div class="list darkbg" id="situation3_bin-default">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater" value="0">Behaviour 1</li>
+          <li class="floater" value="1">Behaviour 2</li>
+          <li class="floater" value="2">Behaviour 3</li>
+          <li class="floater" value="3">Behaviour 4</li>
+          <li class="floater" value="4">Behaviour 5</li>
+          <li class="floater" value="5">Behaviour 6</li>
+          <li class="floater" value="6">Behaviour 7</li>
+          <li class="floater" value="7">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list" id="situation3_bin-2">
+        <h1><span id="match">Mismatch</span><br/>-2</h1>
+        <ul class="droptrue sortable1" id="situation3_bin-2">
+        </ul>
+    </div>
+    <div class="list" id="situation3_bin-1">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1" id="situation3_bin-1">
+        </ul>
+    </div>
+    <div class="list" id="situation3_bin-0">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1" id="situation3_bin-0">
+        </ul>
+    </div>
+    <div class="list" id="situation3_bin+1">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1" id="situation3_bin+1">
+        </ul>
+    </div>
+    <div class="list" id="situation3_bin+2">
+        <h1><span id="match">Match</span><br/>2</h1>
+        <ul class="droptrue sortable1" id="situation3_bin+2">
+        </ul>
+    </div>
+</div>
+<div id="scenario4" class="scenario">
+    <!-- <h1>Scenario 4</h1> -->
+	<h1 id="pageheader4"></h1>
+    <div class="list darkbg" id="situation4_bin-default">
+        <h1>Behaviours</h1>
+        <ul class="droptrue sortable1">
+          <li class="floater" value="0">Behaviour 1</li>
+          <li class="floater" value="1">Behaviour 2</li>
+          <li class="floater" value="2">Behaviour 3</li>
+          <li class="floater" value="3">Behaviour 4</li>
+          <li class="floater" value="4">Behaviour 5</li>
+          <li class="floater" value="5">Behaviour 6</li>
+          <li class="floater" value="6">Behaviour 7</li>
+          <li class="floater" value="7">Behaviour 8</li>
+        </ul>
+    </div>
+
+    <div class="list" id="situation4_bin-2">
+        <h1><span id="match">Mismatch</span><br/>-2</h1>
+        <ul class="droptrue sortable1" id="situation4_bin-2">
+        </ul>
+    </div>
+    <div class="list" id="situation4_bin-1">
+        <h1><br/>-1</h1>
+        <ul class="droptrue sortable1" id="situation4_bin-1">
+        </ul>
+    </div>
+    <div class="list" id="situation4_bin-0">
+        <h1><br/>0</h1>
+        <ul class="droptrue sortable1" id="situation4_bin-0">
+        </ul>
+    </div>
+    <div class="list" id="situation4_bin+1">
+        <h1><br/>1</h1>
+        <ul class="droptrue sortable1" id="situation4_bin+1">
+        </ul>
+    </div>
+    <div class="list" id="situation4_bin+2">
+        <h1><span id="match">Match</span><br/>2</h1>
+        <ul class="droptrue sortable1" id="situation4_bin+2">
+        </ul>
+    </div>
+</div>
+
+<script>
+	var socket = io('http://localhost:8080');
+
+	var moved_behavior;
+	var bin_start;
+	var bin_end;
+	var situation;
+	
+	var scenario_times = [0, 0, 0, 0];
+	var seconds_in = 0;
+	var seconds_out = 0;
+	
+	var bit_name1;
+	var bit_name2;
+	
+	$(document).ready(function(){
+		$('[class^=floater]').click(function(){
+			situation = $(this).closest("div").attr("id");
+			var played = $(this).attr("value");
+			playTestBehaviour(played, situation);
+			console.log("Played: Behaviour " + played + ": " + situation);
+		});		
+	});
+	
+	$('[class^=floater]').mousedown(function(){
+		situation = $(this).closest("div").attr("id");
+		moved_behavior = $(this).attr("value");			
+		//console.log("mouse down: " + situation + " " + b_number);
+	});
+	
+	$('[class^=floater]').mouseup(function(){
+		bin_start = $(this).closest("div").attr("id");
+		moved_behavior = $(this).attr("value");			
+		//console.log("moving " + moved_behavior + " from  " + situation);
+	});	
+	
+	$(function() {
+		//$("#floater").draggable();
+		$('[id^=situation]').droppable({
+			drop: function(event, ui) {
+				bin_end = event.target.id;
+				//var msg = "Dragged: Behaviour " + moved_behavior + " from " + bin_start + " to " + bin_end;
+				//console.log(moved_behavior, bin_start, bin_end);
+				logDragging(moved_behavior, bin_start, bin_end);
+			}
+		});
+	});
+	
+	var name;
+	
+	// log mouseenter and mouseleave events to calculate time spent on each scenario
+	$('[id^=scenario]')
+		.mouseenter(function() {
+			var myid = $(this)[0].id;
+			name = +myid[8] - 1;
+			seconds_in = new Date().getTime() / 1000;
+			event.stopPropagation();
+		})
+	$('[id^=scenario]')
+		.mouseleave(function() {
+			seconds_out = new Date().getTime() / 1000;
+			// no initial mouseenter available (mouse inside area when page loaded)?
+			if (seconds_in == 0) {
+				seconds_in = seconds_out;
+			}
+			scenario_times[name] = scenario_times[name] + (seconds_out - seconds_in);
+			var name_tmp = +name + 1;
+			console.log("scenario " + name_tmp + ": " + scenario_times[name]);
+			seconds_in = 0;
+		});
+	
+	var i = 0;
+
+	// process user selections
+	function confirmSelections() {
+		var x = $(".floater");
+		var flag = 0;
+		for (var i = 0; i < x.length; i++) {
+			var answer = x[i].parentNode.getAttribute("id");
+			//console.log(x[i].innerHTML + ": " + x[i].parentNode.getAttribute("id"));
+			if (answer == null) {
+				flag = 1;
+			}
+		}
+		if (flag == 1) {
+			alert("Please drag each behaviour to a bin before confirming selections.");
+		}
+		else {
+			for (var i = 0; i < x.length; i++) {
+				var answer = x[i].parentNode.getAttribute("id");
+				var behaviour = x[i].innerHTML;
+				socket.emit("save_answers", behaviour[10], answer);
+				console.log(behaviour[10], answer);
+			}
+			socket.emit("save_times", scenario_times);
+			window.location.href='/public/break2.html';
+			//alert("Thank you, your selections have been recorded.");
+		}
+	}
+	
+	socket.emit('query_bit_order', '1');
+	
+	socket.on('receive_bit_order', function(bits_tmp1, bits_tmp2) {
+		console.log('receive_bit_order: ' + bits_tmp1 + ", " + bits_tmp2);
+		bit_name1 = bits_tmp1;
+		bit_name2 = bits_tmp2;
+	});
+
+	socket.emit('query_scenarios', '0');
+		
+    socket.on('receive_scenarios', function (data1, data2, data3, data4) {
+		console.log('receive_situation: ' + data1+data2+data3+data4);
+//		var displaySituation = document.createElement("div");
+//		displaySituation.innerHTML = "<h2>FlexiBit feels " + data + "</h2>";
+//		pageheader.appendChild(displaySituation);
+//		setSituation(data); -->
+		var head1 = document.getElementById("pageheader1");
+		head1.innerText = bit_name1 + " feels " + data1;
+		var head2 = document.getElementById("pageheader2");
+		head2.innerText = bit_name1 + " feels " + data2;
+		var head3 = document.getElementById("pageheader3");
+		head3.innerText = bit_name1 + " feels " + data3;
+		var head4 = document.getElementById("pageheader4");
+		head4.innerText = bit_name1 + " feels " + data4;
+	});
+</script>
+
+</body>
+</html>
+	
