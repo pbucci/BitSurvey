@@ -12,9 +12,8 @@
 </head>
 <body>
 <div id="instructions" class="instruction">
-	<p><strong>Practice</strong></p>
-	<p> Click the "Behaviour" buttons to try each behaviour. </p>
-	<p> Click the "Ready to Proceed" button when you have familiarized yourself with the behaviours and interface.</p>
+	<p>Click the "Behaviour" buttons to try each behaviour.</p>
+	<p>Click the "Ready to Proceed" button when you have familiarized yourself with the behaviours and interface.</p>
 </div>
 
 <div class="confirmselection">
@@ -299,10 +298,6 @@
 		
     socket.on('receive_scenarios', function (data1, data2, data3, data4) {
 		console.log('receive_situation: ' + data1+data2+data3+data4);
-//		var displaySituation = document.createElement("div");
-//		displaySituation.innerHTML = "<h2>FlexiBit feels " + data + "</h2>";
-//		pageheader.appendChild(displaySituation);
-//		setSituation(data); -->
 		var head1 = document.getElementById("pageheader1");
 		head1.innerText = bit_name + " feels " + data1;
 		var head2 = document.getElementById("pageheader2");
@@ -311,6 +306,8 @@
 		head3.innerText = bit_name + " feels " + data3;
 		var head4 = document.getElementById("pageheader4");
 		head4.innerText = bit_name + " feels " + data4;
+		var title = document.getElementById("instructions");
+		$("#instructions").prepend("<p><strong>Practice: " + bit_name + "</strong></p>");		
 	});
 </script>
 

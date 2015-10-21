@@ -237,8 +237,13 @@ io.on('connection', function(socket){
 	});
 });
 
+var log_creation_time = 0;
+
 function write_to_log(entry) {
-	fs.appendFile("logfile-p" + participant_number + "-" + bit_order + ".txt", get_time() + " " + entry + '\n', function(err) {
+	if (log_creation_time == 0) {
+		log_creation_time = get_time();
+	}
+	fs.appendFile("logfile-p" + participant_number + "-" + bit_order + "-" + log_creation_time + ".txt", get_time() + " " + entry + '\n', function(err) {
 	if(err) {
 		return console.log(err);
 	}
@@ -248,7 +253,7 @@ function write_to_log(entry) {
 
 function get_time() {
 	var current_time = new Date();
-	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:/, '.');
+	current_time = current_time.toISOString().replace(/T/, ' ').replace(/\..+/, '').replace(/:/g, '-');
 	//current_time = current_time.setUTCHours(current_time.getUTCHours() - 7);
 	return current_time;
 }

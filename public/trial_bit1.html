@@ -11,11 +11,10 @@
   <script src="/bins/functions.js"></script>
 </head>
 <body>
+
 <div id="instructions" class="instruction">
-	<p><strong>Experiment block</strong></p>
 	<p>Click the "Behaviour" buttons to try each behaviour. For each Scenario, drop all buttons into the most appropriate bin, from [Mismatch] to [Match]. </p>
 	<p> Click the "Confirm Selections" button when you are satisfied with the placement.</p>
-		
 </div>
 
 <div class="confirmselection">
@@ -195,6 +194,14 @@
     </div>
 </div>
 
+<div id="dialog_saved" title="Selections saved">
+  <p>Thank you, your selections were saved. You can now take off the hearing protectors.</p>
+</div>
+
+<div id="dialog_alert" title="Task not finishded">
+  <p>Please drag each behaviour to a bin before confirming selections.</p>
+</div>
+
 <script>
 	var socket = io('http://localhost:8080');
 
@@ -280,7 +287,8 @@
 			}
 		}
 		if (flag == 1) {
-			alert("Please drag each behaviour to a bin before confirming selections.");
+			//alert("Please drag each behaviour to a bin before confirming selections.");
+			$( "#dialog_alert" ).dialog('open');			
 		}
 		else {
 			for (var i = 0; i < x.length; i++) {
@@ -290,36 +298,42 @@
 				console.log(behaviour[10], answer);
 			}
 			socket.emit("save_times", scenario_times);
-			window.location.href='/public/break2.html';
-			//alert("Thank you, your selections have been recorded.");
+			//window.location.href='/public/break2.html';
+			//alert("Thank you, your selections were saved. You can now take off the hearing protectors.");
+			$( "#dialog_saved" ).dialog('open');
 		}
 	}
 	
 	socket.emit('query_bit_order', '1');
 	
-	socket.on('receive_bit_order', function(bits_tmp1, bits_tmp2) {
-		console.log('receive_bit_order: ' + bits_tmp1 + ", " + bits_tmp2);
-		bit_name1 = bits_tmp1;
-		bit_name2 = bits_tmp2;
+	socket.on('receive_bit_order', function(bits_tmp) {
+		console.log('receive_bit_order: ' + bits_tmp);
+		bit_name = bits_tmp;
 	});
 
 	socket.emit('query_scenarios', '0');
 		
     socket.on('receive_scenarios', function (data1, data2, data3, data4) {
 		console.log('receive_situation: ' + data1+data2+data3+data4);
-//		var displaySituation = document.createElement("div");
-//		displaySituation.innerHTML = "<h2>FlexiBit feels " + data + "</h2>";
-//		pageheader.appendChild(displaySituation);
-//		setSituation(data); -->
 		var head1 = document.getElementById("pageheader1");
-		head1.innerText = bit_name1 + " feels " + data1;
+		head1.innerText = bit_name + " feels " + data1;
 		var head2 = document.getElementById("pageheader2");
-		head2.innerText = bit_name1 + " feels " + data2;
+		head2.innerText = bit_name + " feels " + data2;
 		var head3 = document.getElementById("pageheader3");
-		head3.innerText = bit_name1 + " feels " + data3;
+		head3.innerText = bit_name + " feels " + data3;
 		var head4 = document.getElementById("pageheader4");
-		head4.innerText = bit_name1 + " feels " + data4;
+		head4.innerText = bit_name + " feels " + data4;
+		var title = document.getElementById("instructions");
+		$("#instructions").prepend("<p><strong>Test: " + bit_name + "</strong></p>");		
 	});
+	
+	// initialize popup dialogs for later use	
+	$(function() {
+		$( "#dialog_saved" ).dialog();
+		$( "#dialog_saved" ).dialog('close');
+		$( "#dialog_alert" ).dialog();
+		$( "#dialog_alert" ).dialog('close');
+	}); 
 </script>
 
 </body>
